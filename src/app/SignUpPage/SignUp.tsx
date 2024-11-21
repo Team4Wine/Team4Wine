@@ -83,7 +83,7 @@ export default function SignUp() {
 
 		if (isValid) {
 			// 회원가입 완료 로직 추가하기 : API 호출
-			console.log("회원가입 완료:", { email, nickname, password });
+			// console.log("회원가입 완료:", { email, nickname, password });
 			// 홈으로 이동
 			router.push("/");
 		}
@@ -104,7 +104,6 @@ export default function SignUp() {
 					/>
 					{errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
 				</div>
-
 				<div>
 					<label>닉네임:</label>
 					<input
@@ -149,12 +148,12 @@ export default function SignUp() {
 			</form>
 
 			<div>
-				<button onClick={() => console.log("구글로 회원가입")}>
+				{/* <button onClick={() => console.log("구글로 회원가입")}>
 					구글로 회원가입
 				</button>
 				<button onClick={() => console.log("카카오톡으로 회원가입")}>
 					카카오톡으로 회원가입
-				</button>
+				</button> */}
 			</div>
 		</div>
 	);
