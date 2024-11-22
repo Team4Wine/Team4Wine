@@ -24,7 +24,6 @@ export default function WineListPage() {
           <p>필터</p>
         </div>
         <div className={styles.list}>
-          <p>와인 리스트</p>
           <SearchList />
         </div>
       </div>

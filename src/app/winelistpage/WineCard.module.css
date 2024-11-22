@@ -1,8 +1,138 @@
 .card {
-  height: 300px;
+  height: 375px;
   width: 100%;
   border-radius: 16px;
   border: 1px solid var(--Grayscale-300);
   background-color: var(--White);
   margin-bottom: 20px;
+}
+
+.contents {
+}
+
+.itempart {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  padding: 50px 60px 0;
+}
+
+.itemimage {
+  /* max-width: 60px; */
+  height: 208px;
+  background-color: var(--Grayscale-300);
+}
+
+.itemtext {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 550px;
+}
+
+.upperdiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.name {
+  font-size: 32px;
+  line-height: 42px;
+  font-weight: 600;
+  color: var(--Grayscale-800);
+  max-width: 300px;
+  max-height: 80px;
+  overflow: hidden;
+}
+
+.region {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+  color: var(--Grayscale-500);
+}
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.avgRating {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--Grayscale-800);
+  padding-bottom: 8px;
+}
+
+.starRating {
+  width: 90px;
+  height: 18px;
+  background-color: var(--Grayscale-300);
+}
+
+.reviewCount {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--Grayscale-500);
+  max-width: 100px;
+}
+
+.lowerdiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price {
+  display: inline-block;
+  font-size: 18px;
+  line-height: 26px;
+  align-items: center;
+  font-weight: 700;
+  color: var(--Primary-Purple-100);
+
+  padding: 8px 15px;
+  border-radius: 12px;
+  background-color: var(--Primary-Purple-10-percent);
+}
+
+.arrow {
+  width: 36px;
+  height: 36px;
+  background-color: var(--Grayscale-300);
+}
+
+.reviewpart {
+  border-top: 1px solid var(--Grayscale-300);
+}
+
+.reviewdiv {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 14px 60px 14px 60px;
+}
+
+.reviewheader {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 600;
+  color: var(--Grayscale-800);
+}
+
+.recentReview {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+  color: var(--Grayscale-500);
+  max-height: 52px;
+  overflow: hidden;
 }

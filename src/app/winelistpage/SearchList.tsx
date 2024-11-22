@@ -7,7 +7,7 @@ export default function SearchList() {
   let dataSet: WineData[] = res;
 
   return (
-    <div className={styles.slide}>
+    <div className={styles.list}>
       {dataSet.map((data, index) => (
         <WineCard key={index} data={data} />
       ))}
