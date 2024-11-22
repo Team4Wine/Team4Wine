@@ -1,6 +1,6 @@
 import styles from "./page.module.css";
-import WineCard from "./WineCard";
 import RecommandSlide from "./RecommandSlide";
+import SearchList from "./SearchList";
 
 export default function WineListPage() {
   const testArray: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -12,7 +12,7 @@ export default function WineListPage() {
       </div>
       <div className={styles.recommand}>
         <p>이번 달 추천 와인</p>
-        <RecommandSlide props={testArray} />
+        <RecommandSlide />
       </div>
       <div className={styles.body}>
         <div className={styles.search}>
@@ -23,9 +23,7 @@ export default function WineListPage() {
         </div>
         <div className={styles.list}>
           <p>와인 리스트</p>
-          {testArray.map((value, index) => (
-            <WineCard key={index} />
-          ))}
+          <SearchList />
         </div>
       </div>
       <div className={styles.add}>
