@@ -11,8 +11,10 @@ export default function WineListPage() {
         <p>헤더</p>
       </div>
       <div className={styles.recommand}>
-        <p>이번 달 추천 와인</p>
-        <RecommandSlide />
+        <div className={styles.recommandcontents}>
+          <p className={styles.recommandtext}>이번 달 추천 와인</p>
+          <RecommandSlide />
+        </div>
       </div>
       <div className={styles.body}>
         <div className={styles.search}>
