@@ -1,7 +1,22 @@
 import styles from "./SimpleWineCard.module.css";
 import type { SimpleWineData } from "./interfaces";
+import rating from "../../assets/rating.png";
 
 export default function SimpleWineCard(props: { data: SimpleWineData }) {
   // console.log("simple card에서: ", props.data);
-  return <div className={styles.card}>심플 카드</div>;
+  const { id, name, image, avgRating } = props.data;
+
+  return (
+    <div className={styles.card}>
+      <div className={styles.contents}>
+        {/* 오류: 이미지 로딩 안됨*/}
+        <img className={styles.image} src={image} alt="상품 이미지" />
+        <div className={styles.description}>
+          <p className={styles.avgRating}>{avgRating}</p>
+          <img className={styles.starRating} src={rating} alt="rating" />
+          <p className={styles.name}>{name}</p>
+        </div>
+      </div>
+    </div>
+  );
 }
