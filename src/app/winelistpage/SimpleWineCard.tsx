@@ -9,7 +9,6 @@ export default function SimpleWineCard(props: { data: SimpleWineData }) {
   return (
     <div className={styles.card}>
       <div className={styles.contents}>
-        {/* 오류: 이미지 로딩 안됨*/}
         <img className={styles.image} src={image} alt="상품 이미지" />
         <div className={styles.description}>
           <p className={styles.avgRating}>{avgRating}</p>
