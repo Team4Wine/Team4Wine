@@ -1,4 +1,4 @@
-import styles from "./SimpleWineCard.module.css";
+import styles from "./StarRating.module.css";
 import { HiStar } from "react-icons/hi2";
 
 export default function StarRating(props: { grade: number }) {
@@ -12,9 +12,9 @@ export default function StarRating(props: { grade: number }) {
     <div className={styles.stars}>
       {isActive.map((value, index) =>
         value ? (
-          <HiStar className={styles.active} key={index} color="#6a42db" />
+          <HiStar className={styles.active} key={index} />
         ) : (
-          <HiStar className={styles.inactive} key={index} color="#cfdbea" />
+          <HiStar className={styles.inactive} key={index} />
         )
       )}
     </div>
