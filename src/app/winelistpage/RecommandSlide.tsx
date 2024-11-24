@@ -1,14 +1,13 @@
 import styles from "./RecommandSlide.module.css";
 import SimpleWineCard from "./SimpleWineCard";
-import res from "./tempdata.js";
+import MOCK_RESPONSE from "./MOCK_RESPONSE.js";
 import type { SimpleWineData } from "./interfaces";
 
 export default function RecommandSlide() {
   // console.log(res);
-  let dataSet: SimpleWineData[] = [];
-  res.map((data, i) => {
+  let dataSet: SimpleWineData[] = MOCK_RESPONSE.map((data, i) => {
     const { id, name, image, avgRating } = data;
-    dataSet[i] = { id: id, name: name, image: image, avgRating: avgRating };
+    return { id: id, name: name, image: image, avgRating: avgRating };
   });
 
   return (

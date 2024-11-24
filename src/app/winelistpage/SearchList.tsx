@@ -1,10 +1,10 @@
 import styles from "./SearchList.module.css";
 import WineCard from "./WineCard";
-import res from "./tempdata.js";
+import MOCK_RESPONSE from "./MOCK_RESPONSE.js";
 import type { WineData } from "./interfaces";
 
 export default function SearchList() {
-  let dataSet: WineData[] = res;
+  let dataSet: WineData[] = MOCK_RESPONSE;
 
   return (
     <div className={styles.list}>

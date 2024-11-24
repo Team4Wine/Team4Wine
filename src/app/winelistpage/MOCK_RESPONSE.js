@@ -1,6 +1,6 @@
 // 와인 데이터(개발용/추후 api로 교체 예정)
 
-const res = [
+const MOCK_RESPONSE = [
   {
     id: 425,
     name: "Force Majeure Cabernet Sauvignon 2011",
@@ -150,4 +150,4 @@ const res = [
   },
 ];
 
-export default res;
+export default MOCK_RESPONSE;

@@ -3,8 +3,6 @@ import RecommandSlide from "./RecommandSlide";
 import SearchList from "./SearchList";
 
 export default function WineListPage() {
-  const testArray: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
   return (
     <div className={styles.page}>
       <div className={styles.header}>
