@@ -1,6 +1,6 @@
 import styles from "./WineCard.module.css";
 import type { ReviewData, WineData } from "./interfaces";
-import rating from "../../assets/rating.png";
+import StarRating from "./StarRating";
 
 export default function WineCard(props: { data: WineData }) {
   // console.log("wine card에서: ", props.data);
@@ -27,7 +27,7 @@ export default function WineCard(props: { data: WineData }) {
               </div>
               <div className={styles.reviews}>
                 <p className={styles.avgRating}>{item.avgRating}</p>
-                <img className={styles.starRating} src={rating} alt="별점" />
+                <StarRating grade={Math.round(item.avgRating)} />
                 <p className={styles.reviewCount}>
                   {item.reviewCount}개의 후기
                 </p>
@@ -35,7 +35,7 @@ export default function WineCard(props: { data: WineData }) {
             </div>
             <div className={styles.lowerdiv}>
               <p className={styles.price}>₩ {item.price}</p>
-              <img className={styles.arrow} src={rating} alt="상세보기" />
+              <img className={styles.arrow} alt="상세보기" />
             </div>
           </div>
         </div>

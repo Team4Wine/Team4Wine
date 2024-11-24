@@ -9,7 +9,7 @@ const MOCK_RESPONSE = [
       "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Wine/user/364/1732326589740/image9.png",
     price: 68000,
     type: "RED",
-    avgRating: 5,
+    avgRating: 4.4,
     reviewCount: 1,
     recentReview: {
       id: 1165,
@@ -39,7 +39,7 @@ const MOCK_RESPONSE = [
       "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Wine/user/364/1732326497998/image34.png",
     price: 62000,
     type: "WHITE",
-    avgRating: 5,
+    avgRating: 3.8,
     reviewCount: 1,
     recentReview: {
       id: 1168,
@@ -68,7 +68,7 @@ const MOCK_RESPONSE = [
       "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Wine/user/364/1732326563883/image20.png",
     price: 35000,
     type: "RED",
-    avgRating: 5,
+    avgRating: 3,
     reviewCount: 1,
     recentReview: {
       id: 1170,
