@@ -107,7 +107,7 @@
 .arrow {
   width: 36px;
   height: 36px;
-  background-color: var(--Grayscale-300);
+  color: var(--Grayscale-300);
 }
 
 .reviewpart {
