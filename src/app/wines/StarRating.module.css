@@ -1,0 +1,7 @@
+.active {
+  color: var(--Primary-Purple-100);
+}
+
+.inactive {
+  color: var(--Grayscale-300);
+}
