@@ -49,7 +49,7 @@
 
 .search {
   grid-area: search;
-  background-color: var(--Primary-Purple-100);
+  /* background-color: var(--Primary-Purple-100); */
 }
 
 .filter {

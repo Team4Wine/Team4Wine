@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import RecommandSlide from "./RecommandSlide";
+import SearchBar from "./SearchBar";
 import SearchList from "./SearchList";
 
 export default function WineListPage() {
@@ -16,7 +17,7 @@ export default function WineListPage() {
       </div>
       <div className={styles.body}>
         <div className={styles.search}>
-          <p>검색바</p>
+          <SearchBar />
         </div>
         <div className={styles.filter}>
           <p>필터</p>
