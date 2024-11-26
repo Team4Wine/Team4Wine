@@ -37,6 +37,46 @@
   border: 1px solid var(--Grayscale-300);
 }
 
+.priceContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.priceBar {
+  height: 42px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+  padding-left: 2px;
+}
+
+.priceBar > p {
+  white-space: nowrap;
+  font-size: 18px;
+}
+
+.priceInput {
+  max-width: 200px;
+  font-weight: 500;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--Grayscale-300);
+  outline: none;
+}
+
+.priceInput:focus {
+  border: 1px solid var(--Primary-Purple-100);
+}
+
+.priceInput::-webkit-outer-spin-button,
+.priceInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .buttons {
   display: flex;
   gap: 6px;

@@ -11,7 +11,7 @@ export default function WineListPage() {
   const [searchword, setSearchword] = useState<string>("");
   const [filter, setFilter] = useState<FilterState>({
     type: [],
-    minPrice: 1,
+    minPrice: 0,
     maxPrice: 100000,
     rating: [false, false, false, false, false],
   });
@@ -38,7 +38,7 @@ export default function WineListPage() {
       // handleFilterTChange(e);
     } else if (e.target.name === "maxPrice" || e.target.name === "minPrice") {
       console.log("분기2");
-      // handleFilterPChange(e);
+      handleFilterPChange(e);
     } else {
       console.log("분기3");
       handleFilterRChange(e);
@@ -53,6 +53,8 @@ export default function WineListPage() {
   };
 
   const handleFilterPChange = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log("handleFilterPChange에서, name: ", e.target.name);
+    console.log("handleFilterPChange에서, value: ", e.target.value);
     setFilter({
       ...filter,
       [e.target.name]: e.target.value,
