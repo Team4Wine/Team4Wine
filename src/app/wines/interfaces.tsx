@@ -1,3 +1,5 @@
+import { ChangeEvent, KeyboardEvent } from "react";
+
 export interface SimpleWineData {
   id: number;
   name: string;
@@ -35,4 +37,10 @@ export interface UserData {
   id: number;
   nickname: string;
   image: null;
+}
+
+export interface SearchProps {
+  value?: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onKeyDown: (e: KeyboardEvent<HTMLInputElement>) => void;
 }

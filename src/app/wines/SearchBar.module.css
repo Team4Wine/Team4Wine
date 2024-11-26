@@ -20,5 +20,6 @@
 .inputfield {
   font-size: 16px;
   line-height: 26px;
-  color: var(--Grayscale-500);
+  color: var(--Grayscale-800);
+  outline: none;
 }
