@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from 'next/link';
 
 export default function SignUp() {
 	const router = useRouter();
@@ -147,14 +148,19 @@ export default function SignUp() {
 				<button type="submit">가입하기</button>
 			</form>
 
-			<div>
-				{/* <button onClick={() => console.log("구글로 회원가입")}>
-					구글로 회원가입
-				</button>
-				<button onClick={() => console.log("카카오톡으로 회원가입")}>
-					카카오톡으로 회원가입
-				</button> */}
-			</div>
+			<div style={{ padding: '50px', textAlign: 'center' }}>
+            <h1>환영합니다!</h1>
+            <p>간편하게 회원가입하고 서비스를 이용해 보세요.</p>
+            
+            <div>
+                <Link href="/oauth/signup/google">
+                    <button style={{ margin: '10px', padding: '10px 20px' }}>구글로 가입하기</button>
+                </Link>
+                <Link href="/oauth/signup/kakao">
+                    <button style={{ margin: '10px', padding: '10px 20px' }}>카카오톡으로 가입하기</button>
+                </Link>
+            </div>
+        </div>
 		</div>
 	);
 }
