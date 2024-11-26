@@ -43,23 +43,20 @@
     "filter list";
   grid-template-columns: 1fr minmax(auto, 800px);
   grid-template-rows: 48px 1fr;
-  gap: 20px;
-  margin-top: 40px;
+  gap: 40px;
+  margin-top: 30px;
 }
 
 .search {
   grid-area: search;
-  /* background-color: var(--Primary-Purple-100); */
 }
 
 .filter {
   grid-area: filter;
-  background-color: var(--Grayscale-300);
 }
 
 .list {
   grid-area: list;
-  background-color: var(--Grayscale-500);
 }
 
 .add {

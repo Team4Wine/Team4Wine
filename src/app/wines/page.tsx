@@ -2,6 +2,7 @@ import styles from "./page.module.css";
 import RecommandSlide from "./RecommandSlide";
 import SearchBar from "./SearchBar";
 import SearchList from "./SearchList";
+import Filter from "./Filter";
 
 export default function WineListPage() {
   return (
@@ -20,7 +21,7 @@ export default function WineListPage() {
           <SearchBar />
         </div>
         <div className={styles.filter}>
-          <p>필터</p>
+          <Filter />
         </div>
         <div className={styles.list}>
           <SearchList />
