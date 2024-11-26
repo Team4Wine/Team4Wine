@@ -44,3 +44,21 @@ export interface SearchProps {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onKeyDown: (e: KeyboardEvent<HTMLInputElement>) => void;
 }
+
+export const WineType = {
+  Red: "red",
+  White: "white",
+  Sparkling: "sparkling",
+} as const;
+
+export interface FilterState {
+  type: (typeof WineType)[];
+  minPrice: number;
+  maxPrice: number;
+  rating: boolean[];
+}
+
+export interface FilterProps {
+  value?: FilterState;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+}
