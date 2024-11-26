@@ -8,7 +8,7 @@ export default function Filter(props: FilterProps) {
   // rating: 상태는 boolean[] 타입, 각 체크박스의 체크여부를 가지는 5칸짜리 배열.
 
   return (
-    <form action="#" className={styles.filters}>
+    <div className={styles.filters}>
       <input
         name="maxPrice"
         value={props.value?.maxPrice}
@@ -82,6 +82,6 @@ export default function Filter(props: FilterProps) {
           설정 적용하기
         </button>
       </div>
-    </form>
+    </div>
   );
 }

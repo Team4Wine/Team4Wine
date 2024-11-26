@@ -5,7 +5,7 @@ import RecommandSlide from "./RecommandSlide";
 import SearchBar from "./SearchBar";
 import SearchList from "./SearchList";
 import Filter from "./Filter";
-import { FilterState, WineType } from "./interfaces";
+import { FilterState } from "./interfaces";
 
 export default function WineListPage() {
   const [searchword, setSearchword] = useState<string>("");
@@ -30,17 +30,14 @@ export default function WineListPage() {
   };
 
   const handleFilterChange = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log("handleFilter에서 name: ", e.target.name);
-    console.log("handleFilter에서 value: ", e.target.value);
-    console.log("handleFilter에서 checked: ", e.target.checked);
+    // console.log("handleFilter에서 name: ", e.target.name);
+    // console.log("handleFilter에서 value: ", e.target.value);
+    // console.log("handleFilter에서 checked: ", e.target.checked);
     if (e.target.name === "type") {
       console.log("분기1");
       // handleFilterTChange(e);
     } else if (e.target.name === "maxPrice" || e.target.name === "minPrice") {
-      console.log("분기2-1");
-      // handleFilterPChange(e);
-    } else if (e.target.name === "minPrice") {
-      console.log("분기2-2");
+      console.log("분기2");
       // handleFilterPChange(e);
     } else {
       console.log("분기3");
@@ -63,14 +60,13 @@ export default function WineListPage() {
   };
 
   const handleFilterRChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const key = "rating";
     const index = Number(e.target.name.slice(7, 8));
     const ratingArray = filter.rating;
     ratingArray[index] = e.target.checked;
     // console.log("handleFilterRChange에서, index: ", index);
     setFilter({
       ...filter,
-      [e.target.name]: ratingArray,
+      rating: ratingArray,
     });
     console.log("handleFilterRChange에서: ", filter.rating);
   };
