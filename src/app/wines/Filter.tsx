@@ -4,7 +4,7 @@ import { FilterProps } from "./interfaces";
 export default function Filter(props: FilterProps) {
   const RATING_VALUE = [
     "4.5 - 5",
-    "4.0-4.5",
+    "4.0 - 4.5",
     "3.5 - 4.0",
     "3.0 - 3.5",
     "0 - 3.0",
@@ -29,7 +29,6 @@ export default function Filter(props: FilterProps) {
               className={styles.priceInput}
               type="number"
               name="minPrice"
-              key="minPrice"
               value={props.value?.minPrice}
               onChange={props.onChange}
             />
@@ -41,7 +40,6 @@ export default function Filter(props: FilterProps) {
               className={styles.priceInput}
               type="number"
               name="maxPrice"
-              key="maxPrice"
               value={props.value?.maxPrice}
               onChange={props.onChange}
             />
@@ -51,7 +49,6 @@ export default function Filter(props: FilterProps) {
       </div>
       <div className={styles.filter}>
         <p className={styles.header}>RATING</p>
-        {/* checkbox 박스가 안보이는 이슈 있음 */}
         <div className={styles.ratingContent}>
           {RATING_VALUE.map((value, index) => {
             return (
@@ -75,7 +72,6 @@ export default function Filter(props: FilterProps) {
           className={`${styles.button} ${styles.reset}`}
           type="submit"
           name="reset"
-          key="reset"
           onClick={props.onSubmit}
         >
           초기화
@@ -84,7 +80,6 @@ export default function Filter(props: FilterProps) {
           className={`${styles.button} ${styles.apply}`}
           type="submit"
           name="apply"
-          key="apply"
           onClick={props.onSubmit}
         >
           설정 적용하기

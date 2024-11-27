@@ -52,7 +52,7 @@ export const WineType = {
 } as const;
 
 export interface FilterState {
-  type: (typeof WineType)[];
+  type: typeof WineType | null;
   minPrice: number;
   maxPrice: number;
   rating: boolean[];
