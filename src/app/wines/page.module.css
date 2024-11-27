@@ -1,0 +1,85 @@
+.page {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.header {
+  height: 70px;
+  background-color: var(--Black);
+  border-radius: 16px;
+
+  color: white;
+  padding: 25px 0 0 40px;
+
+  margin-top: 40px;
+}
+
+.recommand {
+  height: 299px;
+  border-radius: 16px;
+  background-color: var(--Grayscale-100);
+
+  margin-top: 20px;
+}
+
+.recommandcontents {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 30px 30px;
+}
+
+.recommandtext {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  color: var(--Grayscale-800);
+}
+
+.body {
+  display: grid;
+  grid-template-areas:
+    ". search"
+    "filter list";
+  grid-template-columns: 1fr minmax(auto, 800px);
+  grid-template-rows: 48px 1fr;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.search {
+  grid-area: search;
+  background-color: var(--Primary-Purple-100);
+}
+
+.filter {
+  grid-area: filter;
+  background-color: var(--Grayscale-300);
+}
+
+.list {
+  grid-area: list;
+  background-color: var(--Grayscale-500);
+}
+
+.add {
+  position: fixed;
+  bottom: 30px;
+  right: 150px;
+
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--Primary-Purple-100);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.add > p {
+  color: var(--White);
+  font-size: 50px;
+  line-height: 0%;
+}
