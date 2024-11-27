@@ -15,9 +15,9 @@ export default function Filter(props: FilterProps) {
       <div className={styles.filter}>
         <p className={styles.header}>WINES TYPES</p>
         <div className={styles.typeContent}>
-          <button className={styles.typeElement}>Red</button>
-          <button className={styles.typeElement}>White</button>
-          <button className={styles.typeElement}>Sparkling</button>
+          <div className={styles.typeElement}>Red</div>
+          <div className={styles.typeElement}>White</div>
+          <div className={styles.typeElement}>Sparkling</div>
         </div>
       </div>
       <div className={styles.filter}>
@@ -29,6 +29,7 @@ export default function Filter(props: FilterProps) {
               className={styles.priceInput}
               type="number"
               name="minPrice"
+              key="minPrice"
               value={props.value?.minPrice}
               onChange={props.onChange}
             />
@@ -40,6 +41,7 @@ export default function Filter(props: FilterProps) {
               className={styles.priceInput}
               type="number"
               name="maxPrice"
+              key="maxPrice"
               value={props.value?.maxPrice}
               onChange={props.onChange}
             />
@@ -53,7 +55,7 @@ export default function Filter(props: FilterProps) {
         <div className={styles.ratingContent}>
           {RATING_VALUE.map((value, index) => {
             return (
-              <label className={styles.ratingElement}>
+              <label className={styles.ratingElement} key={index}>
                 <div className={styles.box} />
                 <input
                   className={styles.input}
@@ -69,8 +71,22 @@ export default function Filter(props: FilterProps) {
         </div>
       </div>
       <div className={styles.buttons}>
-        <button className={`${styles.button} ${styles.reset}`}>초기화</button>
-        <button className={`${styles.button} ${styles.apply}`}>
+        <button
+          className={`${styles.button} ${styles.reset}`}
+          type="submit"
+          name="reset"
+          key="reset"
+          onClick={props.onSubmit}
+        >
+          초기화
+        </button>
+        <button
+          className={`${styles.button} ${styles.apply}`}
+          type="submit"
+          name="apply"
+          key="apply"
+          onClick={props.onSubmit}
+        >
           설정 적용하기
         </button>
       </div>

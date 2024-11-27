@@ -1,4 +1,4 @@
-import { ChangeEvent, KeyboardEvent } from "react";
+import { ChangeEvent, FormEvent, FormEventHandler, KeyboardEvent } from "react";
 
 export interface SimpleWineData {
   id: number;
@@ -61,4 +61,5 @@ export interface FilterState {
 export interface FilterProps {
   value?: FilterState;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onSubmit: (e: FormEvent<HTMLButtonElement>) => void;
 }
