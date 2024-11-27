@@ -1,20 +1,122 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Profile.module.css";
 import Link from "next/link";
 
-export default function ProfilePage() {
-  const [nickname, setNickname] = useState<string>("");
-  const [activeTab, setActiveTab] = useState<"reviews" | "wines">("reviews");
+interface Review {
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+}
 
-  const handleNicknameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setNickname(event.target.value);
-  };
+interface Wine {
+  id: string;
+  name: string;
+  region: string;
+  image: string;
+  price: number;
+  type: string;
+  avgRating: number;
+  reviewCount: number;
+  recentReview: Review | null;
+}
+
+const timeAgo = (date: string) => {
+  const now = new Date();
+  const createdDate = new Date(date);
+  const diffInMs = now.getTime() - createdDate.getTime();
+
+  const seconds = Math.floor(diffInMs / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+  const days = Math.floor(hours / 24);
+
+  if (days > 0) {
+    return `${days}일 전`;
+  } else if (hours > 0) {
+    return `${hours}시간 전`;
+  } else if (minutes > 0) {
+    return `${minutes}분 전`;
+  } else {
+    return `${seconds}초 전`;
+  }
+};
+
+export default function ProfilePage() {
+  const [activeTab, setActiveTab] = useState<"reviews" | "wines">("reviews");
+  const [nickname, setNickname] = useState("닉네임");
+  const [inputNickname, setInputNickname] = useState("");
 
   const handleTabChange = (tab: "reviews" | "wines") => {
     setActiveTab(tab);
   };
+
+  const handleNicknameChange = () => {
+    if (inputNickname.trim() !== "") {
+      setNickname(inputNickname);
+      setInputNickname("");
+    }
+  };
+
+  // 동적으로 와인 데이터 배열을 만들기
+  const wineData: Wine[] = [
+    {
+      id: "424",
+      name: "Castello di Ama L’Apparita 2020",
+      region: "Tuscany, Italy",
+      image:
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Wine/user/364/1732326602605/image8.png",
+      price: 22000,
+      type: "RED",
+      avgRating: 4.5,
+      reviewCount: 6,
+      recentReview: {
+        id: "1163",
+        content: "모처럼 계모임에~ 와인 한잔으로~ 기분내기~",
+        createdAt: "2024-11-22T07:22:51.604Z",
+        updatedAt: "2024-11-22T07:22:51.604Z",
+      },
+      userId: 364,
+    },
+    {
+      id: "425",
+      name: "Force Majeure Cabernet Sauvignon 2011",
+      region: "Washington, USA",
+      image:
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Wine/user/364/1732326589740/image9.png",
+      price: 68000,
+      type: "RED",
+      avgRating: 5,
+      reviewCount: 1,
+      recentReview: {
+        id: "1165",
+        content:
+          "상당히 드라이하고 탄닌감이 강한 종입니다. 하지만 바디감이 중심을 잡아주고 미네랄과 과일향이 레이어를 쌓아 고급스럽고 완성도 높아 와인 매니아 분들이라면 시도해보실만 한 것 같네요.",
+        createdAt: "2024-11-22T07:26:25.487Z",
+        updatedAt: "2024-11-22T07:26:25.487Z",
+      },
+      userId: 364,
+    },
+    {
+      id: "426",
+      name: "Mount Peak Winery Cabernet Sauvignon Sentinel 2016",
+      region: "California, USA",
+      image:
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Wine/user/364/1732326577497/image10.png",
+      price: 78000,
+      type: "RED",
+      avgRating: 2,
+      reviewCount: 1,
+      recentReview: {
+        id: "1166",
+        content: "미국 와인은 처음인데 별로. 싸지 않은 값이었는데 너무 거침.",
+        createdAt: "2024-11-22T07:30:39.329Z",
+        updatedAt: "2024-11-22T07:30:39.329Z",
+      },
+      userId: 364,
+    },
+  ];
 
   return (
     <div>
@@ -40,11 +142,16 @@ export default function ProfilePage() {
           <p className={styles.name}>닉네임</p>
           <input
             type="text"
-            value={nickname}
-            onChange={handleNicknameChange}
             placeholder="변경할닉네임"
+            value={inputNickname}
+            onChange={(e) => setInputNickname(e.target.value)}
           />
-          <button className={styles.changeButton}>변경하기</button>
+          <button
+            className={styles.changeButton}
+            onClick={handleNicknameChange}
+          >
+            변경하기
+          </button>
         </div>
         <div className={styles.listContainer}>
           <div className={styles.sort}>
@@ -68,23 +175,23 @@ export default function ProfilePage() {
                 <p>내가 등록한 와인</p>
               </div>
             </div>
-            <div className={styles.totalCount}>총 ?개</div>
+            <div className={styles.totalCount}>총 {wineData.length}개</div>{" "}
+            {/* 동적 와인 개수 표시 */}
           </div>
 
-          {activeTab === "reviews" && (
-            <>
-              <div className={styles.epilogue}>
+          {activeTab === "reviews" &&
+            wineData.map((wine) => (
+              <div key={wine.id} className={styles.epilogueContainer}>
                 <div className={styles.sorted}>
                   <div className={styles.starDate}>
                     <div className={styles.point}>
                       <img src="star.png" alt="별점" className={styles.star} />
-                      <p>별점</p>
+                      <p>{wine.avgRating} 점</p>
                     </div>
-                    <div>
-                      <div className={styles.elapse}>경과시간</div>
+                    <div className={styles.elapse}>
+                      {timeAgo(wine.recentReview?.createdAt || "")}
                     </div>
                   </div>
-
                   <button>
                     <img
                       src="editicon.png"
@@ -93,40 +200,25 @@ export default function ProfilePage() {
                     />
                   </button>
                 </div>
-              </div>
-            </>
-          )}
-
-          {activeTab === "wines" && (
-            <>
-              <div className={styles.epilogue}>
-                <div className={styles.sorted}>
-                  <div className={styles.starDate}>
-                    <div className={styles.point}>
-                      <img
-                        src="wine-icon.png"
-                        alt="와인 아이콘"
-                        className={styles.star}
-                      />
-                    </div>
-                    <div>
-                      <div className={styles.elapse}>와인명</div>
-                      <div className={styles.elapse}>원산지</div>
-                      <div className={styles.elapse}>가격</div>
-                    </div>
+                <div>
+                  <div className={styles.wineName}>{wine.name}</div>
+                  <div className={styles.epilogue}>
+                    {wine.recentReview?.content || "후기가 없습니다."}
                   </div>
-
-                  <button>
-                    <img
-                      src="editicon.png"
-                      alt="수정삭제버튼"
-                      className={styles.editButton}
-                    />
-                  </button>
                 </div>
               </div>
-            </>
-          )}
+            ))}
+
+          {activeTab === "wines" &&
+            wineData.map((wine) => (
+              <div key={wine.id} className={styles.wineContainer}>
+                <img
+                  src={wine.image}
+                  alt="와인사진"
+                  className={styles.wineImage}
+                />
+              </div>
+            ))}
         </div>
       </div>
     </div>

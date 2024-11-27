@@ -48,16 +48,20 @@
 }
 
 .nickname {
-  margin-top: 20px;
+  margin-top: 50px;
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .email {
   text-align: center;
-  margin-top: 80px;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .name {
-  margin-top: 60px;
+  margin-top: 50px;
   text-align: left;
   width: 100%;
 }
@@ -83,7 +87,7 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  bottom: 39px;
+  bottom: 30px;
   right: 20px;
 }
 
@@ -110,13 +114,21 @@
   text-align: center;
 }
 
-.epilogue {
+.epilogueContainer {
   width: 800px;
   height: 202px;
   border-radius: 16px;
   border: 1px solid #cfdbea;
-  margin: 5px 0px;
+  margin: 70px 0px;
   padding: 30px 40px;
+}
+
+.wineContainer {
+  width: 800px;
+  height: 228px;
+  border-radius: 16px;
+  border: 1px solid #cfdbea;
+  margin: 70px 0px;
 }
 
 .star {
@@ -125,7 +137,7 @@
 }
 
 .point {
-  width: 80px;
+  width: auto;
   height: 42px;
   border-radius: 12px;
   padding: 8px 15px;
@@ -154,6 +166,27 @@
   align-items: center;
   text-align: center;
   height: 42px;
+}
+
+.wineName {
+  font-size: 16px;
+  font-weight: 500;
+  color: #9facbd;
+  margin-top: 20px;
+}
+
+.epilogue {
+  font-size: 16px;
+  color: #2d3034;
+  font-weight: 400;
+  margin-top: 20px;
+}
+
+.wineImage {
+  width: 76px;
+  height: 270px;
+  margin-left: 60px;
+  margin-top: -43px;
 }
 
 .editButton {
