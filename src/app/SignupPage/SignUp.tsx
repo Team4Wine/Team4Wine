@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from 'next/link';
+import { signUpUser } from "../api/signUp";
+import Link from "next/link";
 
-export default function SignUp() {
-	const router = useRouter();
+const SignUp = () => {
+  const router = useRouter();
 
 	const [email, setEmail] = useState("");
 	const [nickname, setNickname] = useState("");
@@ -68,9 +69,8 @@ export default function SignUp() {
 		setErrors((prevErrors) => ({ ...prevErrors, [field]: errorMessage }));
 	};
 
-	const handleSubmit = (e: any) => {
+	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
-		// 모든 입력값이 유효한지 확인
 		for (let key in errors) {
 			handleBlur(key);
 		}
@@ -83,15 +83,19 @@ export default function SignUp() {
 			confirmPassword;
 
 		if (isValid) {
-			// 회원가입 완료 로직 추가하기 : API 호출
-			// console.log("회원가입 완료:", { email, nickname, password });
-			// 홈으로 이동
-			router.push("/");
+			await signUpUser({
+				email,
+				nickname,
+				password,
+				confirmPassword,
+				setErrors,
+			});
 		}
 	};
 
 	return (
 		<div>
+			<h1>WINE</h1>
 			<h1>회원가입</h1>
 			<form onSubmit={handleSubmit}>
 				<div>
@@ -116,7 +120,6 @@ export default function SignUp() {
 					/>
 					{errors.nickname && <p style={{ color: "red" }}>{errors.nickname}</p>}
 				</div>
-
 				<div>
 					<label>비밀번호:</label>
 					<input
@@ -128,7 +131,6 @@ export default function SignUp() {
 					/>
 					{errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
 				</div>
-
 				<div>
 					<label>비밀번호 확인:</label>
 					<input
@@ -144,23 +146,27 @@ export default function SignUp() {
 						<p style={{ color: "red" }}>{errors.confirmPassword}</p>
 					)}
 				</div>
-
 				<button type="submit">가입하기</button>
 			</form>
 
-			<div style={{ padding: '50px', textAlign: 'center' }}>
-            <h1>환영합니다!</h1>
-            <p>간편하게 회원가입하고 서비스를 이용해 보세요.</p>
-            
-            <div>
-                <Link href="/oauth/signup/google">
-                    <button style={{ margin: '10px', padding: '10px 20px' }}>구글로 가입하기</button>
-                </Link>
-                <Link href="/oauth/signup/kakao">
-                    <button style={{ margin: '10px', padding: '10px 20px' }}>카카오톡으로 가입하기</button>
-                </Link>
-            </div>
-        </div>
+			<div style={{ padding: "50px", textAlign: "center" }}>
+				<p>간편하게 회원가입하고 서비스를 이용해 보세요.</p>
+
+				<div>
+					<Link href="/oauth/signup/google">
+						<button style={{ margin: "10px", padding: "10px 20px" }}>
+							구글로 가입하기
+						</button>
+					</Link>
+					<Link href="/oauth/signup/kakao">
+						<button style={{ margin: "10px", padding: "10px 20px" }}>
+							카카오톡으로 가입하기
+						</button>
+					</Link>
+				</div>
+			</div>
 		</div>
 	);
-}
+};
+
+export default SignUp;
