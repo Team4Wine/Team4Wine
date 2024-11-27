@@ -20,12 +20,12 @@
   color: var(--Grayscale-800);
 }
 
-.types {
+.typeContent {
   display: flex;
   gap: 10px;
 }
 
-.type {
+.typeElement {
   font-size: 16px;
   font-weight: 500;
   color: var(--Grayscale-800);
@@ -75,6 +75,40 @@
 .priceInput::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.ratingContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ratingElement {
+  display: flex;
+  gap: 10px;
+}
+
+.box {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 1px solid var(--Grayscale-300);
+  background-color: var(--Grayscale-100);
+}
+
+.input {
+  position: absolute;
+}
+
+.input:checked {
+  margin: 5px 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background-color: var(--Primary-Purple-100);
+}
+
+.text {
 }
 
 .buttons {

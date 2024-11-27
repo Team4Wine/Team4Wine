@@ -7,17 +7,17 @@ export default function Filter(props: FilterProps) {
     "4.0-4.5",
     "3.5 - 4.0",
     "3.0 - 3.5",
-    "0 - 3.5",
+    "0 - 3.0",
   ];
 
   return (
     <div className={styles.filters}>
       <div className={styles.filter}>
         <p className={styles.header}>WINES TYPES</p>
-        <div className={styles.types}>
-          <button className={styles.type}>Red</button>
-          <button className={styles.type}>White</button>
-          <button className={styles.type}>Sparkling</button>
+        <div className={styles.typeContent}>
+          <button className={styles.typeElement}>Red</button>
+          <button className={styles.typeElement}>White</button>
+          <button className={styles.typeElement}>Sparkling</button>
         </div>
       </div>
       <div className={styles.filter}>
@@ -50,19 +50,23 @@ export default function Filter(props: FilterProps) {
       <div className={styles.filter}>
         <p className={styles.header}>RATING</p>
         {/* checkbox 박스가 안보이는 이슈 있음 */}
-        {RATING_VALUE.map((value, index) => {
-          return (
-            <label>
-              <input
-                type="checkbox"
-                name={`rating[${index}]`}
-                checked={props.value?.rating[index]}
-                onChange={props.onChange}
-              />
-              {value}
-            </label>
-          );
-        })}
+        <div className={styles.ratingContent}>
+          {RATING_VALUE.map((value, index) => {
+            return (
+              <label className={styles.ratingElement}>
+                <div className={styles.box} />
+                <input
+                  className={styles.input}
+                  type="checkbox"
+                  name={`rating[${index}]`}
+                  checked={props.value?.rating[index]}
+                  onChange={props.onChange}
+                />
+                <p className={styles.text}>{value}</p>
+              </label>
+            );
+          })}
+        </div>
       </div>
       <div className={styles.buttons}>
         <button className={`${styles.button} ${styles.reset}`}>초기화</button>
