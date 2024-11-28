@@ -11,7 +11,7 @@ interface Review {
 }
 
 interface Wine {
-  id: string;
+  id: number;
   name: string;
   region: string;
   image: string;
@@ -47,6 +47,8 @@ export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState<"reviews" | "wines">("reviews");
   const [nickname, setNickname] = useState("닉네임");
   const [inputNickname, setInputNickname] = useState("");
+  const [wineData, setWineData] = useState<Wine[]>([]);
+  const [profileImage, setProfileImage] = useState<string>("");
 
   const handleTabChange = (tab: "reviews" | "wines") => {
     setActiveTab(tab);
@@ -59,64 +61,54 @@ export default function ProfilePage() {
     }
   };
 
-  // 동적으로 와인 데이터 배열을 만들기
-  const wineData: Wine[] = [
-    {
-      id: "424",
-      name: "Castello di Ama L’Apparita 2020",
-      region: "Tuscany, Italy",
-      image:
-        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Wine/user/364/1732326602605/image8.png",
-      price: 22000,
-      type: "RED",
-      avgRating: 4.5,
-      reviewCount: 6,
-      recentReview: {
-        id: "1163",
-        content: "모처럼 계모임에~ 와인 한잔으로~ 기분내기~",
-        createdAt: "2024-11-22T07:22:51.604Z",
-        updatedAt: "2024-11-22T07:22:51.604Z",
-      },
-      userId: 364,
-    },
-    {
-      id: "425",
-      name: "Force Majeure Cabernet Sauvignon 2011",
-      region: "Washington, USA",
-      image:
-        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Wine/user/364/1732326589740/image9.png",
-      price: 68000,
-      type: "RED",
-      avgRating: 5,
-      reviewCount: 1,
-      recentReview: {
-        id: "1165",
-        content:
-          "상당히 드라이하고 탄닌감이 강한 종입니다. 하지만 바디감이 중심을 잡아주고 미네랄과 과일향이 레이어를 쌓아 고급스럽고 완성도 높아 와인 매니아 분들이라면 시도해보실만 한 것 같네요.",
-        createdAt: "2024-11-22T07:26:25.487Z",
-        updatedAt: "2024-11-22T07:26:25.487Z",
-      },
-      userId: 364,
-    },
-    {
-      id: "426",
-      name: "Mount Peak Winery Cabernet Sauvignon Sentinel 2016",
-      region: "California, USA",
-      image:
-        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Wine/user/364/1732326577497/image10.png",
-      price: 78000,
-      type: "RED",
-      avgRating: 2,
-      reviewCount: 1,
-      recentReview: {
-        id: "1166",
-        content: "미국 와인은 처음인데 별로. 싸지 않은 값이었는데 너무 거침.",
-        createdAt: "2024-11-22T07:30:39.329Z",
-        updatedAt: "2024-11-22T07:30:39.329Z",
-      },
-      userId: 364,
-    },
-  ];
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfileImage(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  useEffect(() => {
+    const fetchWineData = async () => {
+      try {
+        const response = await fetch(
+          "https://winereview-api.vercel.app/10-4/wines?limit=50"
+        );
+        const data = await response.json();
+
+        const wines: Wine[] = data.list.map((item: any) => ({
+          id: item.id,
+          name: item.name,
+          region: item.region,
+          image: item.image,
+          price: item.price,
+          type: item.type,
+          avgRating: item.avgRating,
+          reviewCount: item.reviewCount,
+          recentReview: item.recentReview
+            ? {
+                content: item.recentReview.content,
+                createdAt: item.recentReview.createdAt,
+                updatedAt: item.recentReview.updatedAt,
+              }
+            : null,
+        }));
+        setWineData(wines);
+      } catch (error) {
+        console.error("Error fetching wine data:", error);
+      }
+    };
+
+    fetchWineData();
+  }, []);
+
+  const filteredWineData = wineData.filter(
+    (wine) => wine.recentReview !== null
+  );
 
   return (
     <div>
@@ -125,17 +117,27 @@ export default function ProfilePage() {
           <img src="logo.png" alt="와인로고" className={styles.logo} />
         </Link>
         <img
-          src="favicon.ico"
+          src={profileImage || "/normalprofileimage.png"}
           alt="프로필"
           className={styles.navProfileImage}
         />
       </div>
       <div className={styles.container}>
         <div className={styles.profileBox}>
-          <img
-            src="/favicon.ico"
-            alt="프로필"
-            className={styles.profileImage}
+          <label htmlFor="profile-image-upload">
+            <img
+              src={profileImage || "/normalprofileimage.png"}
+              alt="프로필"
+              className={styles.profileImage}
+              style={{ cursor: "pointer" }}
+            />
+          </label>
+          <input
+            type="file"
+            id="profile-image-upload"
+            accept="image/*"
+            style={{ display: "none" }}
+            onChange={handleImageChange}
           />
           <p className={styles.nickname}>{nickname}</p>
           <p className={styles.email}>기존 이메일</p>
@@ -175,18 +177,19 @@ export default function ProfilePage() {
                 <p>내가 등록한 와인</p>
               </div>
             </div>
-            <div className={styles.totalCount}>총 {wineData.length}개</div>{" "}
-            {/* 동적 와인 개수 표시 */}
+            <div className={styles.totalCount}>
+              총 {filteredWineData.length}개
+            </div>{" "}
           </div>
 
           {activeTab === "reviews" &&
-            wineData.map((wine) => (
+            filteredWineData.map((wine) => (
               <div key={wine.id} className={styles.epilogueContainer}>
                 <div className={styles.sorted}>
                   <div className={styles.starDate}>
                     <div className={styles.point}>
                       <img src="star.png" alt="별점" className={styles.star} />
-                      <p>{wine.avgRating} 점</p>
+                      <p>{wine.avgRating.toFixed(1)} 점</p>
                     </div>
                     <div className={styles.elapse}>
                       {timeAgo(wine.recentReview?.createdAt || "")}
@@ -210,13 +213,29 @@ export default function ProfilePage() {
             ))}
 
           {activeTab === "wines" &&
-            wineData.map((wine) => (
+            filteredWineData.map((wine) => (
               <div key={wine.id} className={styles.wineContainer}>
-                <img
-                  src={wine.image}
-                  alt="와인사진"
-                  className={styles.wineImage}
-                />
+                <div className={styles.wineBox}>
+                  <img
+                    src={wine.image}
+                    alt="와인사진"
+                    className={styles.wineImage}
+                  />
+                  <div className={styles.wineDetails}>
+                    <div className={styles.registeredWineName}>{wine.name}</div>
+                    <div className={styles.wineRegion}>{wine.region}</div>
+                    <div className={styles.winePrice}>
+                      <p>₩{wine.price.toLocaleString()} </p>
+                    </div>
+                  </div>
+                  <button>
+                    <img
+                      src="editicon.png"
+                      alt="수정삭제버튼"
+                      className={styles.editButton}
+                    />
+                  </button>
+                </div>
               </div>
             ))}
         </div>
