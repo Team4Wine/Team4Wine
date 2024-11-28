@@ -1,14 +1,22 @@
 import styles from "./RecommandSlide.module.css";
 import SimpleWineCard from "./SimpleWineCard";
-import MOCK_RESPONSE from "./MOCK_RESPONSE.js";
 import type { SimpleWineData } from "./interfaces";
+import useRecommendStore from "./useRecommendStore";
+import { useEffect } from "react";
 
 export default function RecommandSlide() {
-  // console.log(res);
-  let dataSet: SimpleWineData[] = MOCK_RESPONSE.map((data, i) => {
-    const { id, name, image, avgRating } = data;
-    return { id: id, name: name, image: image, avgRating: avgRating };
-  });
+  let { recommendedWines, fetchRecommendedWines } = useRecommendStore();
+
+  useEffect(() => {
+    fetchRecommendedWines();
+  }, []);
+
+  let dataSet: SimpleWineData[] = recommendedWines.map(
+    (data: SimpleWineData, i: number) => {
+      const { id, name, image, avgRating } = data;
+      return { id: id, name: name, image: image, avgRating: avgRating };
+    }
+  );
 
   return (
     <div className={styles.slide}>

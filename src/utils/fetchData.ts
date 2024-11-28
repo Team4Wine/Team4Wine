@@ -2,10 +2,19 @@ interface QueryParams {
   [key: string]: string | number | boolean | null | undefined;
 }
 
-interface FetchDataOptions {
+export interface FetchDataOptions {
   url?: string;
   query?: QueryParams;
-  method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'OPTIONS' | 'HEAD' | 'CONNECT' | 'TRACE';
+  method?:
+    | "GET"
+    | "POST"
+    | "PUT"
+    | "DELETE"
+    | "PATCH"
+    | "OPTIONS"
+    | "HEAD"
+    | "CONNECT"
+    | "TRACE";
   body?: any;
   headers?: HeadersInit;
 }
@@ -17,7 +26,9 @@ const fetchData = async ({
   body = null,
   headers = {},
 }: FetchDataOptions): Promise<any> => {
-  const queryString = new URLSearchParams(query as Record<string, string>).toString();
+  const queryString = new URLSearchParams(
+    query as Record<string, string>
+  ).toString();
 
   const options: RequestInit = {
     method,

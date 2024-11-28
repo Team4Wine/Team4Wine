@@ -16,7 +16,8 @@ export interface WineData {
   type: string;
   avgRating: number;
   reviewCount: number;
-  recentReview: ReviewData;
+  recentReview?: ReviewData;
+  userId: number;
 }
 
 export interface ReviewData {
@@ -31,6 +32,7 @@ export interface ReviewData {
   createdAt: string;
   updatedAt: string;
   user: UserData;
+  likes: [];
 }
 
 export interface UserData {
