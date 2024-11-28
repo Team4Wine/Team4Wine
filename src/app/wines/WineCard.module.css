@@ -19,9 +19,7 @@
 }
 
 .itemimage {
-  /* max-width: 60px; */
   height: 208px;
-  background-color: var(--Grayscale-300);
 }
 
 .itemtext {

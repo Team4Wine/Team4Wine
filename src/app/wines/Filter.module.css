@@ -1,0 +1,140 @@
+.filters {
+  width: 100%;
+  min-width: 250px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
+  color: var(--Grayscale-800);
+}
+
+.typeContent {
+  display: flex;
+  gap: 10px;
+}
+
+.typeElement {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--Grayscale-800);
+
+  padding: 10px 18px;
+  height: 42px;
+  background-color: var(--White);
+  border-radius: 100px;
+  border: 1px solid var(--Grayscale-300);
+}
+
+.priceContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.priceBar {
+  height: 42px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+  padding-left: 2px;
+}
+
+.priceBar > p {
+  white-space: nowrap;
+  font-size: 18px;
+}
+
+.priceInput {
+  max-width: 200px;
+  font-weight: 500;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--Grayscale-300);
+  outline: none;
+}
+
+.priceInput:focus {
+  border: 1px solid var(--Primary-Purple-100);
+}
+
+.priceInput::-webkit-outer-spin-button,
+.priceInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.ratingContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ratingElement {
+  display: flex;
+  gap: 10px;
+}
+
+.box {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 1px solid var(--Grayscale-300);
+  background-color: var(--Grayscale-100);
+}
+
+.input {
+  position: absolute;
+}
+
+.input:checked {
+  margin: 5px 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background-color: var(--Primary-Purple-100);
+}
+
+.text {
+  font-size: 18px;
+}
+
+.buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.button {
+  height: 50px;
+  border-radius: 16px;
+  padding: 17px auto;
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.apply {
+  width: 66%;
+  background-color: var(--Primary-Purple-100);
+  color: var(--White);
+}
+
+.reset {
+  width: 33%;
+  background-color: var(--Grayscale-100);
+  color: var(--Black);
+  font-weight: 500;
+}
