@@ -1,24 +1,27 @@
 import styles from "./SearchList.module.css";
 import WineCard from "./WineCard";
-import MOCK_RESPONSE from "./MOCK_RESPONSE.js";
-import type { WineData } from "./interfaces";
 import useSearchStore from "./useSearchStore";
 import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
 export default function SearchList() {
-  let { searchedWines, fetchSearchedWines } = useSearchStore();
+  const [ref, inView] = useInView();
+  let { limit, nextCursor, searchedWines, fetchSearchedWines } =
+    useSearchStore();
 
   useEffect(() => {
-    fetchSearchedWines();
-  }, []);
-  //키는 id/name/region/image/price/type/avgRating/reviewCount/recentReview(간단)/userId
-  let dataSet: WineData[] = searchedWines;
+    if (inView && nextCursor !== null) {
+      // console.log("추가 데이터 패치. nextcursor: ", nextCursor);
+      fetchSearchedWines(limit, nextCursor, searchedWines);
+    }
+  }, [inView]);
 
   return (
     <div className={styles.list}>
-      {dataSet.map((data, index) => (
+      {searchedWines.map((data, index) => (
         <WineCard key={index} data={data} />
       ))}
+      <div className={styles.scrollObserver} ref={ref}></div>
     </div>
   );
 }
