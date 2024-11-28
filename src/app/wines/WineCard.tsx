@@ -7,9 +7,19 @@ export default function WineCard(props: { data: WineData }) {
   // console.log("wine card에서: ", props.data);
 
   const item: WineData = props.data;
-  const review: ReviewData = item.recentReview;
-  const reviewOneLine: string =
-    review.aroma.join(", ") + " - " + review.content;
+
+  let reviewOneLine: string;
+
+  if (item.recentReview) {
+    reviewOneLine = "테스트용 리뷰";
+    // console.log("---------");
+    // api 응답에 recentReview가 간략한 폼으로 들어가있음(schema와 실제응답 다름)
+
+    // reviewOneLine =
+    //   item.recentReview.aroma.join(", ") + " - " + item.recentReview.content;
+  } else {
+    reviewOneLine = "아직 리뷰가 없어요. 리뷰를 등록해 보세요!";
+  }
 
   return (
     <div className={styles.card}>
