@@ -1,17 +1,84 @@
-import styles from "./modal.module.css";
+"use client";
+
+import { useEffect, useRef } from "react";
+import styles from "./Modal.module.css";
+import { IoClose } from "react-icons/io5";
+
+interface ModalProps {
+  modalName?: string;
+  modalContent?: () => JSX.Element;
+  modalClose?: boolean;
+  onClose?: () => void;
+  buttonClick?: () => void;
+  isVisible?: boolean;
+}
 
 const Modal = ({
-  modalName,
-  modalContent,
-  modalContentCustomStyle,
+  modalName = '',
+  modalContent = () => <></>,
   modalClose = true,
-  modalConfirmButton,
-  modalCancelButton,
-  modalAPI
-}) => {
+  onClose = () => {},
+  buttonClick = () => {},
+  isVisible = true,
+}: ModalProps) => {
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    if (isVisible) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [isVisible, onClose]);
+
+  const handleOutsideClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+      onClose();
+    }
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter') {
+      buttonClick();
+    }
+  };
+
   return (
-    <div className={styles.modal}>
-      <p>테스트</p>
+    <div
+      className={styles.overlay}
+      onClick={handleOutsideClick}
+      onKeyUp={handleKeyPress}
+      role="button"
+      tabIndex={0}
+    >
+      <div className={`${styles.modal} ${isVisible ? styles.visible : styles.hidden}`} ref={modalRef}>
+        <div className={styles.modalContent}>
+          <header>
+            <div className={styles.header}>
+              <p>{modalName}</p>
+              {modalClose && <button className={styles.closeButton}><IoClose size="24" color="#9facbd" /></button>}
+            </div>
+          </header>
+          <section className={styles.contentSection}>
+            <div className={`${styles.content} ${styles.modalContentCustomStyle}`}>
+              {modalContent()}
+            </div>
+          </section>
+        </div>
+      </div>
     </div>
   );
 }
