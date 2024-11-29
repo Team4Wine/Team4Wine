@@ -6,7 +6,7 @@ export default function StarRating(props: { grade: number }) {
   for (let i = 0; i < 5; i++) {
     isActive[i] = i < props.grade ? 1 : 0;
   }
-  console.log("isActive: ", isActive);
+  // console.log("isActive: ", isActive);
 
   return (
     <div className={styles.stars}>

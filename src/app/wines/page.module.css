@@ -36,6 +36,10 @@
   color: var(--Grayscale-800);
 }
 
+.addContainer {
+  height: fit-content;
+}
+
 .body {
   display: grid;
   grid-template-areas:
@@ -43,43 +47,34 @@
     "filter list";
   grid-template-columns: 1fr minmax(auto, 800px);
   grid-template-rows: 48px 1fr;
-  gap: 20px;
-  margin-top: 40px;
+  gap: 40px;
+  margin-top: 30px;
 }
 
 .search {
   grid-area: search;
-  background-color: var(--Primary-Purple-100);
 }
 
 .filter {
   grid-area: filter;
-  background-color: var(--Grayscale-300);
 }
 
 .list {
   grid-area: list;
-  background-color: var(--Grayscale-500);
+}
+
+.addObject {
+  width: fit-content;
+  height: fit-content;
+
+  position: sticky;
+  bottom: 80px;
+  padding-left: 1180px;
 }
 
 .add {
-  position: fixed;
-  bottom: 30px;
-  right: 150px;
+  width: 70px;
+  height: 70px;
 
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: var(--Primary-Purple-100);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.add > p {
-  color: var(--White);
-  font-size: 50px;
-  line-height: 0%;
+  color: var(--Primary-Purple-100);
 }

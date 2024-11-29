@@ -1,3 +1,5 @@
+import { ChangeEvent, FormEvent, FormEventHandler, KeyboardEvent } from "react";
+
 export interface SimpleWineData {
   id: number;
   name: string;
@@ -35,4 +37,29 @@ export interface UserData {
   id: number;
   nickname: string;
   image: null;
+}
+
+export interface SearchProps {
+  value?: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onKeyDown: (e: KeyboardEvent<HTMLInputElement>) => void;
+}
+
+export const WineType = {
+  Red: "red",
+  White: "white",
+  Sparkling: "sparkling",
+} as const;
+
+export interface FilterState {
+  type: typeof WineType | null;
+  minPrice: number;
+  maxPrice: number;
+  rating: boolean[];
+}
+
+export interface FilterProps {
+  value?: FilterState;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onSubmit: (e: FormEvent<HTMLButtonElement>) => void;
 }
