@@ -22,22 +22,14 @@
   height: 208px;
 }
 
-.itemtext {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 550px;
-}
-
-.upperdiv {
-  display: flex;
-  justify-content: space-between;
-}
-
 .infos {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 10px;
+  min-width: 370px;
+  margin: 0 0 0 80px;
+  position: relative;
+  left: -30px;
 }
 
 .name {
@@ -45,7 +37,7 @@
   line-height: 42px;
   font-weight: 600;
   color: var(--Grayscale-800);
-  max-width: 300px;
+  max-width: 370px;
   max-height: 80px;
   overflow: hidden;
 }
@@ -55,19 +47,36 @@
   line-height: 26px;
   font-weight: 400;
   color: var(--Grayscale-500);
+  padding: 0 0 14px 0;
+}
+
+.price {
+  display: inline-block;
+  font-size: 18px;
+  line-height: 26px;
+  align-items: center;
+  font-weight: 700;
+  color: var(--Primary-Purple-100);
+
+  width: fit-content;
+  padding: 8px 15px;
+  border-radius: 12px;
+  background-color: var(--Primary-Purple-10-percent);
 }
 
 .reviews {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   gap: 10px;
+  min-width: 80px;
 }
 
 .avgRating {
   font-size: 48px;
   font-weight: 800;
   color: var(--Grayscale-800);
-  padding-bottom: 8px;
+  padding-bottom: 4px;
 }
 
 .starRating {
@@ -84,22 +93,11 @@
   max-width: 100px;
 }
 
-.lowerdiv {
+.arrowcontainer {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-}
-
-.price {
-  display: inline-block;
-  font-size: 18px;
-  line-height: 26px;
-  align-items: center;
-  font-weight: 700;
-  color: var(--Primary-Purple-100);
-
-  padding: 8px 15px;
-  border-radius: 12px;
-  background-color: var(--Primary-Purple-10-percent);
+  justify-content: end;
+  padding: 10px 0 0 0;
 }
 
 .arrow {
