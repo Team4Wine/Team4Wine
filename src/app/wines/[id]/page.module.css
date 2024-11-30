@@ -81,7 +81,6 @@
 .reviewList {
   width: 800px;
   height: 1500px;
-  /* background-color: var(--Grayscale-100); */
 
   display: flex;
   flex-direction: column;
@@ -90,6 +89,18 @@
 
 .statics {
   min-width: 280px;
-  height: 300px;
-  background-color: var(--Grayscale-100);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.giveReview {
+  width: fit-content;
+  height: 42px;
+  padding: 0 20px;
+  border-radius: 12px;
+  background-color: var(--Primary-Purple-100);
+  color: var(--White);
+  font-size: 16px;
+  font-weight: 700;
 }

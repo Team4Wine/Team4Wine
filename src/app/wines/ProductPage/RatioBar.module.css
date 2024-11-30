@@ -1,0 +1,16 @@
+.gray {
+  position: relative;
+  width: 240px;
+  height: 6px;
+  border-radius: 50px;
+  background-color: var(--Grayscale-100);
+}
+
+.purple {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6px;
+  border-radius: 50px;
+  background-color: var(--Primary-Purple-100);
+}

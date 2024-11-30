@@ -193,7 +193,7 @@ export default async function WineProductPage({ params, searchParams }: any) {
             everyValue={item.avgRatings}
             count={item.reviewCount}
           />
-          <button>리뷰 남기기</button>
+          <button className={styles.giveReview}>리뷰 남기기</button>
         </div>
       </div>
     </div>

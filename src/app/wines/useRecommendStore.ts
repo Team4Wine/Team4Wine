@@ -1,9 +1,10 @@
 import { create } from "zustand";
 import fetchData from "../../utils/fetchData";
 import { FetchDataOptions } from "../../utils/fetchData";
+import { WineDataBrief } from "./interfaces";
 
 interface RecommendStore {
-  recommendedWines: any;
+  recommendedWines: WineDataBrief[];
   fetchRecommendedWines: any;
   isLoading: boolean;
   error: null | any;
