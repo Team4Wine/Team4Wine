@@ -69,7 +69,7 @@ const Modal = ({
           <header>
             <div className={styles.header}>
               <p>{modalName}</p>
-              {modalClose && <button className={styles.closeButton}><IoClose size="24" color="#9facbd" /></button>}
+              {modalClose && <button onClick={onClose} className={styles.closeButton}><IoClose size="24" color="#9facbd" /></button>}
             </div>
           </header>
           <section className={styles.contentSection}>

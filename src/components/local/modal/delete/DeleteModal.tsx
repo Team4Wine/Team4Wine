@@ -5,7 +5,7 @@ import useModalStore from "@/components/common/modal/useStore";
 import { useEffect, useRef } from "react";
 import styles from "./DeleteModal.module.css";
 
-const DeleteModal = ({ isClick = true }) => {
+const DeleteModal = ({ isClick = false }) => {
   const { modals, openModal, closeModal } = useModalStore();
   const modalId = useRef('deleteModal');
 
