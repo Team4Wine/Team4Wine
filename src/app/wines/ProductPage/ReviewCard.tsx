@@ -1,11 +1,11 @@
+import { ReviewDataFull } from "./interfaces";
 import styles from "./ReviewCard.module.css";
-import { ReviewData } from "../interfaces";
 import ReviewSlider from "./ReviewSlider";
 
-export default function ReviewCard(props: { data: ReviewData }) {
+export default function ReviewCard(props: { data: ReviewDataFull }) {
   // console.log("review card에서: ", props.data);
 
-  const review: ReviewData = props.data;
+  const review: ReviewDataFull = props.data;
 
   return (
     <div className={styles.card}>
