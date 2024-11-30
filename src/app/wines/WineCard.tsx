@@ -22,9 +22,7 @@ export default function WineCard(props: { data: WineData }) {
             src={item.image}
             alt="상품 이미지"
           />
-          <div className={styles.itemtext}>
-            <div className={styles.upperdiv}>
-            <div className={styles.infos}>
+          <div className={styles.infos}>
             <p className={styles.name}>{item.name}</p>
             <p className={styles.region}>{item.region}</p>
             <p className={styles.price}>₩ {item.price}</p>
@@ -34,17 +32,17 @@ export default function WineCard(props: { data: WineData }) {
             <StarRating grade={Math.round(item.avgRating)} />
             <p className={styles.reviewCount}>{item.reviewCount}개의 후기</p>
             <div className={styles.arrowcontainer}>
-            <Link href={`/wines/${item.id}`}>
+              <Link href={`/wines/${item.id}`}>
                 <HiArrowRight className={styles.arrow} />
               </Link>
             </div>
           </div>
         </div>
-        <div className={styles.reviewpart}>
-          <div className={styles.reviewdiv}>
-            <p className={styles.reviewheader}>최신 후기</p>
-            <p className={styles.recentReview}>{reviewText}</p>
-          </div>
+      </div>
+      <div className={styles.reviewpart}>
+        <div className={styles.reviewdiv}>
+          <p className={styles.reviewheader}>최신 후기</p>
+          <p className={styles.recentReview}>{reviewText}</p>
         </div>
       </div>
     </div>
