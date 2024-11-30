@@ -4,9 +4,9 @@ import { useEffect, useRef } from "react";
 import styles from "./Modal.module.css";
 import { IoClose } from "react-icons/io5";
 
-interface ModalProps {
+export interface ModalProps {
   modalName?: string;
-  modalContent?: () => JSX.Element;
+  children?: React.ReactNode;
   modalClose?: boolean;
   onClose?: () => void;
   buttonClick?: () => void;
@@ -15,11 +15,11 @@ interface ModalProps {
 
 const Modal = ({
   modalName = '',
-  modalContent = () => <></>,
+  children = null,
   modalClose = true,
   onClose = () => {},
   buttonClick = () => {},
-  isVisible = true,
+  isVisible = false,
 }: ModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -74,7 +74,7 @@ const Modal = ({
           </header>
           <section className={styles.contentSection}>
             <div className={`${styles.content} ${styles.modalContentCustomStyle}`}>
-              {modalContent()}
+              {children}
             </div>
           </section>
         </div>
