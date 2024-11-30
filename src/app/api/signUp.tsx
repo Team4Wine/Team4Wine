@@ -32,16 +32,16 @@ export const signUpUser = async ({
 
 		const responseData = await response.json();
 
-  if (response.ok) {
-    return true;
-		} else {
-			console.error("서버 오류 메시지:", responseData);
-			setErrors((prev: any) => ({
-				...prev,
-				email: responseData.message || "알 수 없는 오류가 발생했습니다.",
-			}));
-			return false;
-		}
+    if (response.ok) {
+      return true;
+    } else {
+      console.error("서버 오류 메시지:", responseData);
+      setErrors((prev: any) => ({
+        ...prev,
+        email: responseData.message || "알 수 없는 오류가 발생했습니다.",
+      }));
+      return false;
+    }
 	} catch (error) {
 		console.error("회원가입 중 오류 발생:", error);
 		setErrors((prev: any) => ({

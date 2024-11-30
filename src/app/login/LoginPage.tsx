@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import styles from './login.module.css';
 import logo from '@/../public/logo.png'
@@ -15,6 +15,12 @@ const SignIn = () => {
   const [appKey, setAppKey] = useState("");
   const [appSecret, setAppSecret] = useState("");
 	const router = useRouter();
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.Kakao) {
+      window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_APP_KEY);
+    }
+  }, []);
 
 	const validateEmail = (email: string) => {
 		const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -60,9 +66,7 @@ const SignIn = () => {
 		);
 
 		if (response.ok) {
-			const data = await response.json(); // 응답 데이터 처리
-			// 로그인 성공 시, JWT 토큰이나 사용자 정보를 저장하는 로직 추가 가능
-			// 예: localStorage.setItem('token', data.token);
+			const data = await response.json();
 			router.push("/");
 		} else {
 			const errorData = await response.json();
@@ -79,31 +83,37 @@ const SignIn = () => {
 		}
 	};
 
-	const handleSocialLogin = async (provider: string) => {
-		const url = "https://winereview-api.vercel.app/10-4/oauthApps";
+  const handleSocialLogin = async (provider: string) => {
+    if (provider === "KAKAO") {
+      window.Kakao.Auth.authorize({
+        redirectUri: 'http://localhost:3000/oauth/kakao', // 카카오 인증 후 리다이렉트할 URI
+      });
+    } else if (provider === "GOOGLE") {
+      const url = `https://winereview-api.vercel.app/10-4/auth/signIn/${provider}`;
+      const appKey = process.env.NEXT_PUBLIC_GOOGLE_APP_KEY; // 구글 앱 키
 
-		const response = await fetch(url, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				appSecret: appSecret,
-				appKey: appKey,
-				provider: provider,
-			}),
-		});
-    
-		if (response.ok) {
-			const data = await response.json();
-			// 로그인 성공 처리
-			console.log("로그인 성공:", data);
-			router.push("/"); // 로그인 성공 시 홈으로 리다이렉트
-		} else {
-			const errorData = await response.json();
-			setLoginError(errorData.message || "소셜 로그인에 실패했습니다.");
-		}
-	};
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          appKey: appKey,
+          provider: provider,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("구글 로그인 성공:", data);
+        router.push("/oauth/google"); // 구글 로그인 성공 시 리다이렉트
+      } else {
+        const errorData = await response.json();
+        setLoginError(errorData.message || "소셜 로그인에 실패했습니다.");
+      }
+    }
+  };
+
 	
 
 	return (
@@ -142,8 +152,8 @@ const SignIn = () => {
         {loginError && <p style={{ color: "red" }}>{loginError}</p>}
         <div className={styles.signupBox}>
           <button onClick={handleLogin} className={styles.signupBtn}>로그인</button>
-          <button onClick={() => handleSocialLogin("google")} className={styles.socialBtn}>구글로 로그인</button>
-          <button onClick={() => handleSocialLogin("kakao")} className={styles.socialBtn}>
+          <button onClick={() => handleSocialLogin("GOOGLE")} className={styles.socialBtn}>구글로 로그인</button>
+          <button onClick={() => handleSocialLogin("KAKAO")} className={styles.socialBtn}>
             카카오톡으로 로그인
           </button>
         </div>
