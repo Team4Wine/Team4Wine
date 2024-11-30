@@ -33,6 +33,7 @@ export interface ReviewData {
   updatedAt: string;
   user?: UserData;
   likes?: [];
+  isLiked?: boolean;
 }
 
 export interface UserData {

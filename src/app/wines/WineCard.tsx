@@ -2,6 +2,7 @@ import styles from "./WineCard.module.css";
 import type { ReviewData, WineData } from "./interfaces";
 import StarRating from "./StarRating";
 import { HiArrowRight } from "react-icons/hi";
+import Link from "next/link";
 
 export default function WineCard(props: { data: WineData }) {
   // console.log("wine card에서: ", props.data);
@@ -21,7 +22,9 @@ export default function WineCard(props: { data: WineData }) {
             src={item.image}
             alt="상품 이미지"
           />
-          <div className={styles.infos}>
+          <div className={styles.itemtext}>
+            <div className={styles.upperdiv}>
+            <div className={styles.infos}>
             <p className={styles.name}>{item.name}</p>
             <p className={styles.region}>{item.region}</p>
             <p className={styles.price}>₩ {item.price}</p>
@@ -31,7 +34,9 @@ export default function WineCard(props: { data: WineData }) {
             <StarRating grade={Math.round(item.avgRating)} />
             <p className={styles.reviewCount}>{item.reviewCount}개의 후기</p>
             <div className={styles.arrowcontainer}>
-              <HiArrowRight className={styles.arrow} />
+            <Link href={`/wines/${item.id}`}>
+                <HiArrowRight className={styles.arrow} />
+              </Link>
             </div>
           </div>
         </div>

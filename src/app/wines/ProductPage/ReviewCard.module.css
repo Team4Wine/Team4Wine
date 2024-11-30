@@ -1,0 +1,62 @@
+.card {
+  height: fit-content;
+  padding: 20px 30px;
+
+  border-radius: 20px;
+  border: 1px solid var(--Grayscale-300);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.userInfo {
+  display: flex;
+}
+
+.avatar {
+}
+
+.userText {
+  display: flex;
+  flex-direction: column;
+}
+
+.nickname {
+}
+
+.createdAt {
+  color: var(--Grayscale-500);
+}
+
+.panels {
+  display: flex;
+}
+
+.contents {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.aromas {
+  display: flex;
+  gap: 5px;
+}
+.aroma {
+  padding: 8px 8px;
+  border-radius: 50px;
+  border: 1px solid var(--Grayscale-800);
+}
+
+.text {
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
