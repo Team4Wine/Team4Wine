@@ -104,10 +104,11 @@ const SignUp = () => {
         </div>
         <form onSubmit={handleSubmit}>
           <div>
-            <label className={styles.label}>이메일:</label>
+            <label className={styles.label}>이메일</label>
             <input
               type="email"
               className={styles.inputField}
+              placeholder="whyne@email.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               onBlur={() => handleBlur("email")}
@@ -116,10 +117,11 @@ const SignUp = () => {
             {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
           </div>
           <div>
-            <label className={styles.label}>닉네임:</label>
+            <label className={styles.label}>닉네임</label>
             <input
               type="text"
               className={styles.inputField}
+              placeholder="whyne"
               value={nickname}
               onChange={(e) => setNickname(e.target.value)}
               onBlur={() => handleBlur("nickname")}
@@ -128,10 +130,11 @@ const SignUp = () => {
             {errors.nickname && <p style={{ color: "red" }}>{errors.nickname}</p>}
           </div>
           <div>
-            <label className={styles.label}>비밀번호:</label>
+            <label className={styles.label}>비밀번호</label>
             <input
               type="password"
               className={styles.inputField}
+              placeholder="영문, 숫자 포함 8자 이상"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               onBlur={() => handleBlur("password")}
@@ -140,10 +143,11 @@ const SignUp = () => {
             {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
           </div>
           <div>
-            <label className={styles.label}>비밀번호 확인:</label>
+            <label className={styles.label}>비밀번호 확인</label>
             <input
               type="password"
               className={styles.inputField}
+              placeholder="비밀번호 확인"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               onBlur={() => handleBlur("confirmPassword")}
