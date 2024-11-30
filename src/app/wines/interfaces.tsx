@@ -16,21 +16,23 @@ export interface WineData {
   type: string;
   avgRating: number;
   reviewCount: number;
-  recentReview: ReviewData;
+  recentReview: ReviewData | null;
+  userId: number;
 }
 
 export interface ReviewData {
   id: number;
-  rating: number;
-  lightBold: number;
-  smoothTannic: number;
-  drySweet: number;
-  softAcidic: number;
-  aroma: string[];
+  rating?: number;
+  lightBold?: number;
+  smoothTannic?: number;
+  drySweet?: number;
+  softAcidic?: number;
+  aroma?: string[];
   content: string;
   createdAt: string;
   updatedAt: string;
-  user: UserData;
+  user?: UserData;
+  likes?: [];
 }
 
 export interface UserData {
