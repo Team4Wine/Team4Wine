@@ -67,7 +67,7 @@
 }
 
 .price span {
-  color: #4ebaec;
+  color: var(--Primary-Purple-100);
   text-align: center;
   font-size: 16px;
   font-style: normal;
