@@ -1,7 +1,7 @@
 "use client";
 import { ChangeEvent, FormEvent, KeyboardEvent, useState } from "react";
 import styles from "./page.module.css";
-import RecommandSlide from "./RecommandSlide";
+import RecommendCarousel from "./RecommendCarousel";
 import SearchBar from "./SearchBar";
 import SearchList from "./SearchList";
 import Filter from "./Filter";
@@ -97,7 +97,7 @@ export default function WineListPage() {
       <div className={styles.recommand}>
         <div className={styles.recommandcontents}>
           <p className={styles.recommandtext}>이번 달 추천 와인</p>
-          <RecommandSlide />
+          <RecommendCarousel />
         </div>
       </div>
       <div className={styles.addContainer}>

@@ -1,9 +1,0 @@
-.slide {
-  display: flex;
-  overflow-x: scroll;
-  gap: 10px;
-}
-
-.slide::-webkit-scrollbar {
-  display: none;
-}
