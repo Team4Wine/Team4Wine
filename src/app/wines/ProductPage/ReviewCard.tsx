@@ -57,7 +57,7 @@ export default function ReviewCard(props: { data: ReviewDataFull }) {
           {props.data.user.image == null ? (
             <HiUserCircle className={styles.avatarDefault} />
           ) : (
-            <img className={styles.avatar} ref={props.data.user.image} />
+            <img className={styles.avatar} src={props.data.user.image} />
           )}
           <div className={styles.userText}>
             <p className={styles.nickname}>{review.user.nickname}</p>
