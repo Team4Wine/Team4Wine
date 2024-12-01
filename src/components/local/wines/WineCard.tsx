@@ -25,7 +25,7 @@ export default function WineCard(props: { data: WineDataBrief }) {
           <div className={styles.infos}>
             <p className={styles.name}>{item.name}</p>
             <p className={styles.region}>{item.region}</p>
-            <p className={styles.price}>₩ {item.price}</p>
+            <p className={styles.price}>₩ {Number(item.price).toLocaleString()}</p>
           </div>
           <div className={styles.reviews}>
             <p className={styles.avgRating}>{item.avgRating}</p>

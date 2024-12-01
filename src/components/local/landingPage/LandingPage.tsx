@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import styles from "./page.module.css";
+import styles from "./LandingPage.module.css";
 import Link from "next/link";
 
 interface Review {

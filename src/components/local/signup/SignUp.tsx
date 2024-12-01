@@ -2,11 +2,10 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { signUpUser } from "../api/signUp";
-import styles from './signup.module.css';
-import logo from '@/../public/logo.png'
-
+import { signUpUser } from "./signUpUser";
+import styles from "./SignUp.module.css";
 import Link from "next/link";
+import logo from '@/../public/logo.png';
 
 const SignUp = () => {
   const router = useRouter();
@@ -102,7 +101,7 @@ const SignUp = () => {
         <div className={styles.logo}>
           <img src={logo} alt="Logo" />
         </div>
-        <form onSubmit={handleSubmit}>
+        <form className={styles.form} onSubmit={handleSubmit}>
           <div>
             <label className={styles.label}>이메일</label>
             <input
@@ -114,7 +113,7 @@ const SignUp = () => {
               onBlur={() => handleBlur("email")}
               onFocus={() => setErrors((prev) => ({ ...prev, email: "" }))}
             />
-            {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
+            {errors.email ? <p style={{ color: "red" }}>{errors.email}</p> : <span className={styles.errorMessageTempSpace}>&nbsp;</span>}
           </div>
           <div>
             <label className={styles.label}>닉네임</label>
@@ -127,7 +126,7 @@ const SignUp = () => {
               onBlur={() => handleBlur("nickname")}
               onFocus={() => setErrors((prev) => ({ ...prev, nickname: "" }))}
             />
-            {errors.nickname && <p style={{ color: "red" }}>{errors.nickname}</p>}
+            {errors.nickname ? <p style={{ color: "red" }}>{errors.nickname}</p> : <span className={styles.errorMessageTempSpace}>&nbsp;</span>}
           </div>
           <div>
             <label className={styles.label}>비밀번호</label>
@@ -140,7 +139,7 @@ const SignUp = () => {
               onBlur={() => handleBlur("password")}
               onFocus={() => setErrors((prev) => ({ ...prev, password: "" }))}
             />
-            {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
+            {errors.password ? <p style={{ color: "red" }}>{errors.password}</p> : <span className={styles.errorMessageTempSpace}>&nbsp;</span>}
           </div>
           <div>
             <label className={styles.label}>비밀번호 확인</label>
@@ -155,16 +154,16 @@ const SignUp = () => {
                 setErrors((prev) => ({ ...prev, confirmPassword: "" }))
               }
             />
-            {errors.confirmPassword && (
+            {errors.confirmPassword ? (
               <p style={{ color: "red" }}>{errors.confirmPassword}</p>
-            )}
+            ) : (<span className={styles.errorMessageTempSpace}>&nbsp;</span>)}
           </div>
           <button type="submit" className={styles.signupBtn}>가입하기</button>
         </form>
         <div className={styles.loginArea}>
           <p className={styles.text}>계정이 이미 있으신가요?</p>
           <div>
-            <Link href="/login">
+            <Link href="/signin">
               <button className={styles.linkButton}>
                 로그인하기
               </button>

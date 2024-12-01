@@ -13,7 +13,7 @@ const FilterModal = ({ isClick = false }) => {
   const { setWineTypes, setPrice, setRating } = useFilterStore();
   const [range, setRange] = useState([0, 100000]);
   const [selected, setSelected] = useState<string>('');
-  const [selectedRating, setSelectedRating] = useState('4.5 - 4.8');
+  const [selectedRating, setSelectedRating] = useState('');
   const modalId = useRef('filterModal');
 
   useEffect(() => {
