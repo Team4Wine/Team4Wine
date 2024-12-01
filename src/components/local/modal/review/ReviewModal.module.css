@@ -1,0 +1,152 @@
+.container {
+  padding-top: 48px;
+  width: 500px;
+  max-width: 80vw;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.star {
+  cursor: pointer;
+}
+
+.wineContent {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  padding-bottom: 24px;
+}
+
+.wineImage {
+  width: 68px;
+  height: 68px;
+  padding: 7px;
+  border-radius: 8px;
+  background-color: var(--Grayscale-100);
+}
+
+.wineReview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.reviewInput {
+  width: 480px;
+  text-wrap: wrap;
+  padding: 14px 20px;
+  border-radius: 16px;
+  border: 1px solid var(--Grayscale-300);
+  color: var(--Black);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  padding-bottom: 40px;
+}
+
+.reviewInput::placeholder {
+  color: var(--Grayscale-500);
+}
+
+.reviewListType {
+  width: 54px;
+  padding: 4px 8px;
+  text-align: center;
+  border-radius: 6px;
+  background: var(--Grayscale-100);
+  color: var(--Grayscale-500);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.reviewContent {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 40px;
+}
+
+.tasty {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tastyItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
+}
+
+.tastyItem span{
+  width: 70px;
+  color: var(--Grayscale-800);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.tastyItem div {
+  max-width: 260px;
+}
+
+.aromaSection {
+  display: flex;
+  width: 476px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.aroma {
+  user-select: none;
+  cursor: pointer;
+  display: flex;
+  padding: 10px 18px;
+  border-radius: 100px;
+  border: 1px solid var(--Grayscale-300);
+  background: var(--White);
+  color: var(--Grayscale-800, #2D3034);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.selectedAroma {
+  background: var(--Primary-Purple-100);
+  color: var(--White, #FFF);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.reviewButton {
+  margin-top: 48px;
+  padding: 16px 36px;
+  width: 100%;
+  border-radius: 12px;
+  background: var(--Primary-Purple-100);
+  color: var(--White);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.aromaContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+}

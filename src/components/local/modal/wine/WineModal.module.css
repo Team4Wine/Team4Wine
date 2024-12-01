@@ -1,0 +1,136 @@
+.container {
+  padding-top: 24px;
+  max-width: 80vw;
+  max-height: 85vh;
+  overflow-y: auto;
+  width: 415px;
+}
+
+.wineContent {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 12px;
+}
+
+.wineContent h3 {
+  color: var(--Grayscale-800);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.wineContent input {
+  padding: 14px 20px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--Grayscale-300);
+  background: var(--White);
+}
+
+.wineContent input::placeholder {
+  color: var(--Grayscale-500);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+.dropdown {
+  padding: 14px 20px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--Grayscale-300);
+  background: var(--White);
+}
+
+.dropdown option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 16px 6px;
+  color: var(--Grayscale-800);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.dropdown option:hover {
+  background: var(--Primary-Purple-10-percent);
+  color: var(--Primary-Purple-100);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+  overflow: hidden;
+}
+
+.wineImageContent {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 40px;
+}
+
+.wineImageContent h3 {
+  color: var(--Grayscale-800);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.wineImageContent input {
+  display: none;
+}
+
+.imagePreview {
+  width: 140px;
+  height: 140px;
+  border-radius: 16px;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--Grayscale-300);
+  background: var(--White);
+  cursor: pointer;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.cancelButton {
+  background-color: var(--Grayscale-100);
+  color: var(--Grayscale-800);
+  border-radius: 16px;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.confirmButton {
+  flex-grow: 1;
+  background-color: var(--Primary-Purple-100);
+  color: var(--White);
+  border-radius: 12px;
+  padding: 16px 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
