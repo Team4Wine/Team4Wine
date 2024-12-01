@@ -54,7 +54,7 @@ export default function ReviewCard(props: { data: ReviewDataFull }) {
     <div className={styles.card}>
       <div className={styles.cardHeader}>
         <div className={styles.userInfo}>
-          {props.data.user.image == null ? (
+          {props.data.user.image == null? (
             <HiUserCircle className={styles.avatarDefault} />
           ) : (
             <img className={styles.avatar} src={props.data.user.image} />
