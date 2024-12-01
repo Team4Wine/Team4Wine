@@ -3,9 +3,6 @@ import ReviewCard from "../ProductPage/ReviewCard";
 import ReviewStatics from "../ProductPage/ReviewStatics";
 import fetchData, { FetchDataOptions } from "@/utils/fetchData";
 import { WineDataFull } from "../ProductPage/interfaces";
-import { useEffect, useRef, useState } from "react";
-import useModalStore from "@/components/common/modal/useStore";
-import ReviewModal from "../../modal/review/ReviewModal";
 
 const fetchProductData = async (
   id: number
@@ -40,9 +37,6 @@ const fetchProductData = async (
 export default async function WineProductPage({ params }: any) {
   // undefined일 확률이 제거되질 않아서(fetch 함수 내에서 확인중) 타입단언 이용함
   const item = (await fetchProductData(await params.id)) as WineDataFull;
-  const [isOpenModal, setIsOpenModal] = useState(false);
-  const { modals } = useModalStore();
-  const modalId = useRef("reviewModal");
 
   return (
     <div className={styles.page}>
@@ -76,10 +70,9 @@ export default async function WineProductPage({ params }: any) {
             everyValue={item.avgRatings}
             count={item.reviewCount}
           />
-          <button className={styles.giveReview} onClick={() => setIsOpenModal(true)}>리뷰 남기기</button>
+          <button className={styles.giveReview}>리뷰 남기기</button>
         </div>
       </div>
-      {isOpenModal && <ReviewModal isClick={true} />}
     </div>
   );
 }
