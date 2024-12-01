@@ -1,165 +1,42 @@
 import styles from "./page.module.css";
 import ReviewCard from "../ProductPage/ReviewCard";
 import ReviewStatics from "../ProductPage/ReviewStatics";
-//테스트페이지 424
+import fetchData, { FetchDataOptions } from "@/utils/fetchData";
+import { WineDataFull } from "../ProductPage/interfaces";
 
-// 목데이터인데 다이나믹 라우팅 때문에? import 문제가 있어서 임시로 이 파일에 추가합니다...
-const WINE_DATA = {
-  id: 424,
-  name: "Castello di Ama L’Apparita 2020",
-  region: "Tuscany, Italy",
-  image:
-    "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Wine/user/364/1732326602605/image8.png",
-  price: 22000,
-  type: "RED",
-  avgRating: 4.5,
-  reviewCount: 6,
-  recentReview: {
-    id: 1163,
-    rating: 4,
-    lightBold: 8,
-    smoothTannic: 3,
-    drySweet: 1,
-    softAcidic: 4,
-    aroma: ["CHERRY", "BERRY", "OAK", "VANILLA", "FLOWER", "PEPPER"],
-    content: "모처럼 계모임에~ 와인 한잔으로~ 기분내기~",
-    createdAt: "2024-11-22T07:22:51.604Z",
-    updatedAt: "2024-11-22T07:22:51.604Z",
-    user: {
-      id: 364,
-      nickname: "team4",
-      image: null,
-    },
-    likes: [],
-  },
-  userId: 364,
-  reviews: [
-    {
-      id: 1163,
-      rating: 4,
-      aroma: ["CHERRY", "BERRY", "OAK", "VANILLA", "FLOWER", "PEPPER"],
-      content: "모처럼 계모임에~ 와인 한잔으로~ 기분내기~",
-      createdAt: "2024-11-22T07:22:51.604Z",
-      updatedAt: "2024-11-22T07:22:51.604Z",
-      lightBold: 8,
-      smoothTannic: 3,
-      drySweet: 1,
-      softAcidic: 4,
-      user: {
-        id: 364,
-        nickname: "team4",
-        image: null,
+const fetchProductData = async (
+  id: number
+): Promise<WineDataFull | undefined> => {
+  let isLoading = true;
+
+  // signin 연결 안되어서 인증토큰 하드코딩 후 기능확인함
+  // 오류나면 새로 토큰 발급받아서 테스트 / 추후 교체 예정
+  try {
+    const data: FetchDataOptions = {
+      url: `https://winereview-api.vercel.app/10-4/wines/${id}`,
+      query: {},
+      method: "GET",
+      body: null,
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzY0LCJ0ZWFtSWQiOiIxMC00Iiwic2NvcGUiOiJhY2Nlc3MiLCJpYXQiOjE3MzMwMTc2MjksImV4cCI6MTczMzAxOTQyOSwiaXNzIjoic3AtZXBpZ3JhbSJ9.RZJy6LWUTdFdzzvlUHwLtEgmhMim9eJ6UKA1UA6MAK8",
       },
-      isLiked: false,
-    },
-    {
-      id: 1161,
-      rating: 4,
-      aroma: ["BERRY", "OAK", "VANILLA"],
-      content: "잘마셨어용 굿굿",
-      createdAt: "2024-11-22T07:18:07.281Z",
-      updatedAt: "2024-11-22T07:18:07.281Z",
-      lightBold: 8,
-      smoothTannic: 3,
-      drySweet: 3,
-      softAcidic: 3,
-      user: {
-        id: 364,
-        nickname: "team4",
-        image: null,
-      },
-      isLiked: false,
-    },
-    {
-      id: 1160,
-      rating: 5,
-      aroma: ["CHERRY", "BERRY", "OAK", "VANILLA", "MINERAL"],
-      content:
-        "처음 시향할때는 새콤한 베리 향이 톡 치고 들어오는데, 이후에는 드라이한 맛에 오크 베이스의 달콤하고 묵직한 아로마가 압도적입니다.. 이 가격대에서 찾아볼 수 있는 최고의 수작 아닐까 싶네요. 추천합니다.",
-      createdAt: "2024-11-22T07:17:26.342Z",
-      updatedAt: "2024-11-22T07:17:26.342Z",
-      lightBold: 9,
-      smoothTannic: 4,
-      drySweet: 2,
-      softAcidic: 2,
-      user: {
-        id: 364,
-        nickname: "team4",
-        image: null,
-      },
-      isLiked: false,
-    },
-    {
-      id: 1159,
-      rating: 4,
-      aroma: ["CHERRY", "BERRY", "OAK", "VANILLA", "CARAMEL"],
-      content: "호불호 안타고 저렴하니 입문용으로 좋습니다",
-      createdAt: "2024-11-22T07:16:26.496Z",
-      updatedAt: "2024-11-22T07:16:26.496Z",
-      lightBold: 7,
-      smoothTannic: 3,
-      drySweet: 2,
-      softAcidic: 1,
-      user: {
-        id: 364,
-        nickname: "team4",
-        image: null,
-      },
-      isLiked: false,
-    },
-    {
-      id: 1158,
-      rating: 5,
-      aroma: ["BERRY", "OAK", "MINERAL", "VANILLA"],
-      content: "ㅊㅊ",
-      createdAt: "2024-11-22T07:14:49.586Z",
-      updatedAt: "2024-11-22T07:14:49.586Z",
-      lightBold: 7,
-      smoothTannic: 3,
-      drySweet: 2,
-      softAcidic: 2,
-      user: {
-        id: 364,
-        nickname: "team4",
-        image: null,
-      },
-      isLiked: false,
-    },
-    {
-      id: 1157,
-      rating: 5,
-      aroma: ["CHERRY", "BERRY", "OAK", "MINERAL"],
-      content:
-        "와인 산지로 유명한 토스카나 지방의 와인! 꽉찬 바디감에 드라이하면서도 떫은맛이 적고 향이 풍부해요",
-      createdAt: "2024-11-22T07:07:14.271Z",
-      updatedAt: "2024-11-22T07:07:14.271Z",
-      lightBold: 8,
-      smoothTannic: 3,
-      drySweet: 3,
-      softAcidic: 2,
-      user: {
-        id: 364,
-        nickname: "team4",
-        image: null,
-      },
-      isLiked: false,
-    },
-  ],
-  avgRatings: {
-    1: 0,
-    2: 0,
-    3: 0,
-    4: 3,
-    5: 3,
-  },
+    };
+    const result = await fetchData(data);
+
+    if (typeof result === undefined) {
+      throw Error;
+    } else return result;
+  } catch (error) {
+    console.log(error);
+  } finally {
+    isLoading = false;
+  }
 };
 
-export default async function WineProductPage({ params, searchParams }: any) {
-  console.log("params :", await params);
-  console.log("search params:", await searchParams);
-
-  // id로 데이터패치 받기(Authorization 필요)
-  const item = WINE_DATA;
+export default async function WineProductPage({ params }: any) {
+  // undefined일 확률이 제거되질 않아서(fetch 함수 내에서 확인중) 타입단언 이용함
+  const item = (await fetchProductData(await params.id)) as WineDataFull;
 
   return (
     <div className={styles.page}>
