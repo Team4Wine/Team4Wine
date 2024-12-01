@@ -30,12 +30,36 @@
   margin-bottom: 10px;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .inputField {
+  padding: 14px 20px;
   width: 400px;
   height: 48px;
   border: 1px solid #cfdbea;
   border-radius: 16px;
-  margin-bottom: 32px;
+  margin-bottom: 8px;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 14px;
+  height: 20px;
+}
+
+.errorMessageTempSpace {
+  height: 40px;
+}
+
+.signupBox {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 56px 32px;
 }
 
 .signupBtn {
@@ -44,10 +68,18 @@
   border-radius: 16px;
   color: #ffffff;
   background-color: #6a42db;
-  margin-bottom: 40px;
 }
 
-.loginArea {
+.socialBtn{
+  width: 400px;
+  height: 50px;
+  border: 1px solid #CFDBEA;
+  border-radius: 16px;
+  color: #2D3034;
+  background-color: #ffffff;
+}
+
+.signupArea {
   display: flex;
   gap: 10px;
 }
@@ -59,6 +91,13 @@
 }
 
 .linkButton {
-  color: #6a42db;
   text-decoration: underline;
+}
+
+.lostButton {
+  margin-top: 16px;
+}
+
+.lostButton,.linkButton {
+  color: #6a42db;
 }

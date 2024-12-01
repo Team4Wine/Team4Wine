@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import "../app/styles/reset.css";
-import "../app/styles/variables.css";
+import "@/assets/styles/reset.css"
+import "@/assets/styles/variables.css";
 
 export const metadata: Metadata = {
 	title: "Wine",

@@ -1,0 +1,80 @@
+.page {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.header {
+  height: 70px;
+  background-color: var(--Black);
+  border-radius: 16px;
+
+  color: white;
+  padding: 25px 0 0 40px;
+
+  margin-top: 40px;
+}
+
+.recommand {
+  height: 299px;
+  border-radius: 16px;
+  background-color: var(--Grayscale-100);
+
+  margin-top: 20px;
+}
+
+.recommandcontents {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 30px 30px;
+}
+
+.recommandtext {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  color: var(--Grayscale-800);
+}
+
+.addContainer {
+  height: fit-content;
+}
+
+.body {
+  display: grid;
+  grid-template-areas:
+    ". search"
+    "filter list";
+  grid-template-columns: 1fr minmax(auto, 800px);
+  grid-template-rows: 48px 1fr;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.search {
+  grid-area: search;
+}
+
+.filter {
+  grid-area: filter;
+}
+
+.list {
+  grid-area: list;
+}
+
+.addObject {
+  width: fit-content;
+  height: fit-content;
+
+  position: sticky;
+  bottom: 80px;
+  padding-left: 1180px;
+}
+
+.add {
+  width: 70px;
+  height: 70px;
+
+  color: var(--Primary-Purple-100);
+}

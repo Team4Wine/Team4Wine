@@ -1,7 +1,6 @@
 import { create } from "zustand";
-import fetchData from "../../utils/fetchData";
-import { FetchDataOptions } from "../../utils/fetchData";
 import { WineDataBrief } from "./interfaces";
+import fetchData, { FetchDataOptions } from "@/utils/fetchData";
 
 interface SearchStore {
   limit: number;

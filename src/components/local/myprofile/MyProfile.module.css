@@ -1,0 +1,251 @@
+.container {
+  width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navigateBar {
+  width: 1140px;
+  margin: 30px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  top: 40px;
+  border-radius: 16px;
+  padding: 11px 60px;
+  background-color: #101318;
+}
+
+.navProfileImage {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  align-self: center;
+}
+
+.profileBox {
+  width: 280px;
+  height: 530px;
+  border-radius: 16px;
+  border: 1px solid #cfdbea;
+  padding: 28px 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.profileImage {
+  width: 164px;
+  height: 164px;
+  border-radius: 50%;
+  border: 1px solid #cfdbea;
+  object-fit: cover;
+  align-self: center;
+}
+
+.nickname {
+  margin-top: 50px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.email {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.name {
+  margin-top: 50px;
+  text-align: left;
+  width: 100%;
+}
+
+.profileBox input {
+  width: 100%;
+  padding: 14px 20px;
+  border: 1px solid #cfdbea;
+  border-radius: 16px;
+  margin-top: 10px;
+}
+
+.changeButton {
+  width: 96px;
+  height: 42px;
+  border-radius: 12px;
+  padding: 16px 20px;
+  background-color: #6a42db;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 30px;
+  right: 20px;
+}
+
+.listContainer {
+  width: 800px;
+}
+
+.sort {
+  width: 800px;
+  height: 32px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.category {
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  width: 259px;
+  height: 32px;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.epilogueContainer {
+  width: 800px;
+  height: 202px;
+  border-radius: 16px;
+  border: 1px solid #cfdbea;
+  margin: 30px 0px;
+  padding: 30px 40px;
+}
+
+.wineContainer {
+  width: 800px;
+  height: 228px;
+  border-radius: 16px;
+  border: 1px solid #cfdbea;
+  margin: 30px 0px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.wineDetails {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.wineName {
+  font-size: 16px;
+  font-weight: 500;
+  color: #9facbd;
+  margin-top: 20px;
+}
+
+.registeredWineName {
+  font-size: 30px;
+  font-weight: 600;
+  color: #2d3034;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.wineRegion {
+  font-size: 16px;
+  font-weight: 400;
+  color: #9facbd;
+  margin-bottom: 20px;
+}
+
+.winePrice {
+  font-size: 18px;
+  font-weight: 700;
+  color: #6a42db;
+  background-color: #f1edfc;
+  padding: 8px 15px;
+  border-radius: 12px;
+  width: fit-content;
+}
+
+.star {
+  width: 20px;
+  height: 20px;
+}
+
+.point {
+  width: auto;
+  height: 42px;
+  border-radius: 12px;
+  padding: 8px 15px;
+  background-color: #f1edfc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.starDate {
+  width: 158px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.sorted {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.elapse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 42px;
+}
+
+.epilogue {
+  font-size: 16px;
+  color: #2d3034;
+  font-weight: 400;
+  margin-top: 20px;
+}
+
+.wineImage {
+  width: 76px;
+  height: 270px;
+  margin-left: 40px;
+  margin-top: -43px;
+}
+
+.editButton {
+  width: 26px;
+  height: 26px;
+}
+
+.listContainer .wineContainer .wineBox .editButton {
+  position: absolute;
+  right: 40px;
+  top: 30px;
+}
+
+.wineBox {
+  display: flex;
+}
+
+.totalCount {
+  margin-top: 6px;
+  margin-right: 5px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #6a42db;
+}

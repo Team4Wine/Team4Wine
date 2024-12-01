@@ -1,11 +1,13 @@
 //import HomePage from "./home/page";
+import HomePage from "@/components/local/landingPage/LandingPage";
 import styles from "./page.module.css";
 
-export default function Home() {
+const LandingPage = () => {
   return (
     <div className={styles.page}>
-      <p>테스트</p>
+      <HomePage />
     </div>
-    //<HomePage/>
   );
 }
+
+export default LandingPage;
