@@ -1,0 +1,139 @@
+.card {
+  height: fit-content;
+  padding: 20px 30px;
+
+  border-radius: 20px;
+  border: 1px solid var(--Grayscale-300);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.userInfo {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.avatar,
+.avatarDefault {
+  width: 64px;
+  height: 64px;
+  border-radius: 50px;
+}
+
+.avatarDefault {
+  fill: var(--Grayscale-300);
+}
+
+.userText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nickname {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--Grayscale-800);
+}
+
+.timeStamp {
+  font-size: 16px;
+  color: var(--Grayscale-500);
+}
+
+.panels {
+  display: flex;
+  gap: 10px;
+  position: relative;
+  top: -5px;
+  right: -5px;
+}
+
+.liked,
+.notLiked,
+.setting,
+.folded,
+.unFolded {
+  height: 30px;
+  width: 30px;
+  color: var(--Grayscale-500);
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.briefReview {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 5px;
+}
+
+.aromas {
+  display: flex;
+  gap: 5px;
+}
+
+.aroma {
+  padding: 8px 15px;
+  border-radius: 50px;
+  border: 1px solid var(--Grayscale-300);
+  color: var(--Grayscale-800);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.ratingTag {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: 8px 15px;
+  border-radius: 12px;
+  background-color: var(--Primary-Purple-10-percent);
+}
+
+.tagStar {
+  width: 20px;
+  height: 20px;
+  color: var(--Primary-Purple-100);
+}
+
+.tagText {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--Primary-Purple-100);
+}
+
+.seeMore {
+}
+
+.content {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--Grayscale-800);
+  padding: 0 6px 20px;
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.foldContainer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: -5px;
+}

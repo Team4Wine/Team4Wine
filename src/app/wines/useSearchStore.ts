@@ -1,13 +1,13 @@
 import { create } from "zustand";
 import fetchData from "../../utils/fetchData";
 import { FetchDataOptions } from "../../utils/fetchData";
-import { WineData } from "./interfaces";
+import { WineDataBrief } from "./interfaces";
 
 interface SearchStore {
   limit: number;
   totalCount: number;
   nextCursor: null | number;
-  searchedWines: WineData[];
+  searchedWines: WineDataBrief[];
   fetchSearchedWines: any;
   isLoading: boolean;
   error: null | any;
@@ -24,7 +24,7 @@ const useSearchStore = create<SearchStore>((set) => ({
   fetchSearchedWines: async (
     limit: number,
     nextCursor: null | number,
-    searchedWines: WineData[]
+    searchedWines: WineDataBrief[]
   ) => {
     console.log("fetch 시작 (search)");
     set({ isLoading: true, error: null });

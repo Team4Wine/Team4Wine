@@ -1,3 +1,13 @@
+.small > svg {
+  height: 16px;
+  width: 16px;
+}
+
+.large > svg {
+  height: 20px;
+  width: 20px;
+}
+
 .active {
   color: var(--Primary-Purple-100);
 }

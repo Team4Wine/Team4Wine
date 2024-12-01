@@ -12,7 +12,7 @@ export default function SimpleWineCard(props: { data: SimpleWineData }) {
         <img className={styles.image} src={image} alt="상품 이미지" />
         <div className={styles.description}>
           <p className={styles.avgRating}>{avgRating}</p>
-          <StarRating grade={Math.round(avgRating)} />
+          <StarRating grade={Math.round(avgRating)} size="small" />
           <p className={styles.name}>{name}</p>
         </div>
       </div>

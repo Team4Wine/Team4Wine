@@ -1,5 +1,6 @@
-import { ChangeEvent, FormEvent, FormEventHandler, KeyboardEvent } from "react";
+import { ChangeEvent, FormEvent, KeyboardEvent } from "react";
 
+// edited for recommend card
 export interface SimpleWineData {
   id: number;
   name: string;
@@ -7,7 +8,8 @@ export interface SimpleWineData {
   avgRating: number;
 }
 
-export interface WineData {
+// /wines, /wines/recommended
+export interface WineDataBrief {
   id: number;
   name: string;
   region: string;
@@ -16,29 +18,25 @@ export interface WineData {
   type: string;
   avgRating: number;
   reviewCount: number;
-  recentReview: ReviewData | null;
+  recentReview: ReviewDataBrief | null;
   userId: number;
 }
 
-export interface ReviewData {
+// /wines, /wines/recommended
+export interface ReviewDataBrief {
   id: number;
-  rating?: number;
-  lightBold?: number;
-  smoothTannic?: number;
-  drySweet?: number;
-  softAcidic?: number;
-  aroma?: string[];
+  rating: number;
+  aroma: string[];
   content: string;
   createdAt: string;
   updatedAt: string;
-  user?: UserData;
-  likes?: [];
+  user: UserData;
 }
 
 export interface UserData {
   id: number;
   nickname: string;
-  image: null;
+  image: null | string;
 }
 
 export interface SearchProps {
