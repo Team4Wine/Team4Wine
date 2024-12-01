@@ -1,5 +1,6 @@
 "use client";
 
+
 import { useState, useEffect } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
@@ -160,6 +161,7 @@ export default function ProfilePage() {
     return <p>프로필 정보를 불러오는 중...</p>;
   }
 
+
   return (
     <div>
       <div className={styles.navigateBar}>
@@ -167,7 +169,9 @@ export default function ProfilePage() {
           <img src="logo.png" alt="와인로고" className={styles.logo} />
         </Link>
         <img
+
           src={profileImage || userData?.image || "/normalprofileimage.png"} // 프로필 이미지 업데이트
+
           alt="프로필"
           className={styles.navProfileImage}
         />
@@ -175,6 +179,7 @@ export default function ProfilePage() {
       <div className={styles.container}>
         <div className={styles.profileBox}>
           <img
+
             src={profileImage || userData?.image || "/normalprofileimage.png"} // 프로필 이미지 업데이트
             alt="프로필"
             className={styles.profileImage}
@@ -206,6 +211,7 @@ export default function ProfilePage() {
             onChange={handleProfileImageChange} // 프로필 이미지 변경 핸들러
             style={{ display: "none" }} // 파일 입력 요소 숨기기
           />
+
         </div>
         <div className={styles.listContainer}>
           <div className={styles.sort}>
@@ -229,6 +235,7 @@ export default function ProfilePage() {
                 <p>내가 등록한 와인</p>
               </div>
             </div>
+
             <div className={styles.totalCount}>
               총 {filteredWineData.length}개
             </div>{" "}
@@ -237,16 +244,19 @@ export default function ProfilePage() {
           {activeTab === "reviews" &&
             filteredWineData.map((wine) => (
               <div key={wine.id} className={styles.epilogueContainer}>
+
                 <div className={styles.sorted}>
                   <div className={styles.starDate}>
                     <div className={styles.point}>
                       <img src="star.png" alt="별점" className={styles.star} />
+
                       <p>{wine.avgRating.toFixed(1)} 점</p>
                     </div>
                     <div className={styles.elapse}>
                       {timeAgo(wine.recentReview?.createdAt || "")}
                     </div>
                   </div>
+
                   <button>
                     <img
                       src="editicon.png"
@@ -255,6 +265,7 @@ export default function ProfilePage() {
                     />
                   </button>
                 </div>
+
                 <div>
                   <div className={styles.wineName}>{wine.name}</div>
                   <div className={styles.epilogue}>
@@ -280,6 +291,7 @@ export default function ProfilePage() {
                       <p>₩{wine.price.toLocaleString()} </p>
                     </div>
                   </div>
+
                   <button>
                     <img
                       src="editicon.png"
@@ -289,7 +301,9 @@ export default function ProfilePage() {
                   </button>
                 </div>
               </div>
+
             ))}
+
         </div>
       </div>
     </div>
