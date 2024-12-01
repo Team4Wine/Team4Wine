@@ -95,32 +95,12 @@ const FilterModal = ({ isClick = false }) => {
                 <label>
                   <input
                     type="radio"
-                    value="전체"
+                    value="4.5 - 5.0"
                     name="rating"
                     onClick={onClick}
                   />
-                  <span className={`${styles.inputLabel} ${selectedRating == '전체' ? styles.selectedInputLabel : ''}`}>전체</span>
-                  <div className={`${styles.check} ${selectedRating == '전체' ? styles.radioSelected : ''}`}></div>
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    value="4.8 - 5.0"
-                    name="rating"
-                    onClick={onClick}
-                  />
-                  <span className={`${styles.inputLabel} ${selectedRating == '4.8 - 5.0' ? styles.selectedInputLabel : ''}`}>4.8 - 5.0</span>
-                  <div className={`${styles.check} ${selectedRating == '4.8 - 5.0' ? styles.radioSelected : ''}`}></div>
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    value="4.5 - 4.8"
-                    name="rating"
-                    onClick={onClick}
-                  />
-                  <span className={`${styles.inputLabel} ${selectedRating == '4.5 - 4.8' ? styles.selectedInputLabel : ''}`}>4.5 - 4.8</span>
-                  <div className={`${styles.check} ${selectedRating == '4.5 - 4.8' ? styles.radioSelected : ''}`}></div>
+                  <span className={`${styles.inputLabel} ${selectedRating == '4.5 - 5.0' ? styles.selectedInputLabel : ''}`}>4.5 - 5.0</span>
+                  <div className={`${styles.check} ${selectedRating == '4.5 - 5.0' ? styles.radioSelected : ''}`}></div>
                 </label>
                 <label>
                   <input
@@ -135,12 +115,32 @@ const FilterModal = ({ isClick = false }) => {
                 <label>
                   <input
                     type="radio"
-                    value="3.0 - 4.0"
+                    value="3.5 - 4.0"
                     name="rating"
                     onClick={onClick}
                   />
-                  <span className={`${styles.inputLabel} ${selectedRating == '3.0 - 4.0' ? styles.selectedInputLabel : ''}`}>3.0 - 4.0</span>
-                  <div className={`${selectedRating == '3.0 - 4.0' ? styles.radioSelected : styles.check}`}></div>
+                  <span className={`${styles.inputLabel} ${selectedRating == '3.5 - 4.0' ? styles.selectedInputLabel : ''}`}>3.5 - 4.0</span>
+                  <div className={`${styles.check} ${selectedRating == '3.5 - 4.0' ? styles.radioSelected : ''}`}></div>
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    value="3.0 - 3.5"
+                    name="rating"
+                    onClick={onClick}
+                  />
+                  <span className={`${styles.inputLabel} ${selectedRating == '3.0 - 3.5' ? styles.selectedInputLabel : ''}`}>3.0 - 3.5</span>
+                  <div className={`${styles.check} ${selectedRating == '3.0 - 3.5' ? styles.radioSelected : ''}`}></div>
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    value="0 - 3.0"
+                    name="rating"
+                    onClick={onClick}
+                  />
+                  <span className={`${styles.inputLabel} ${selectedRating == '0 - 3.0' ? styles.selectedInputLabel : ''}`}>0 - 3.0</span>
+                  <div className={`${selectedRating == '0 - 3.0' ? styles.radioSelected : styles.check}`}></div>
                 </label>
               </div>
             </section>
