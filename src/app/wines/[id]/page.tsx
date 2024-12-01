@@ -182,7 +182,7 @@ export default async function WineProductPage({ params, searchParams }: any) {
       </div>
       <div className={styles.body}>
         <div className={styles.reviewList}>
-          <p>리뷰목록</p>
+          <h2 className={styles.listHeader}>리뷰목록</h2>
           {item.reviews.map((data, index) => (
             <ReviewCard data={data} key={index} />
           ))}

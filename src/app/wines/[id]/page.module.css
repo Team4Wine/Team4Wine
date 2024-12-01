@@ -17,7 +17,7 @@
 .infoBanner {
   height: 260px;
   border-radius: 16px;
-  border: 1px solid var(--Grayscale-100);
+  border: 1px solid var(--Grayscale-300);
 
   margin-top: 80px;
 }
@@ -74,8 +74,8 @@
 
 .body {
   display: flex;
-  gap: 30px;
-  padding-top: 100px;
+  gap: 50px;
+  padding-top: 70px;
 }
 
 .reviewList {
@@ -85,6 +85,13 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.listHeader {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--Grayscale-800);
+  padding: 0 0 20px 5px;
 }
 
 .statics {

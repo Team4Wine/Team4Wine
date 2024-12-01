@@ -36,7 +36,7 @@ export interface ReviewDataBrief {
 export interface UserData {
   id: number;
   nickname: string;
-  image: null;
+  image: null | string;
 }
 
 export interface SearchProps {
