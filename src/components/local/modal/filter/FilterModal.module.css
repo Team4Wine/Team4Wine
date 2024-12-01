@@ -119,7 +119,7 @@
   width: 10px;
   height: 10px;
   border-radius: 3px;
-  background: var(--main-main, #6A42DB);
+  background: var(--Primary-Purple-100);
   display: none;
 }
 
@@ -130,7 +130,7 @@
   width: 10px;
   height: 10px;
   border-radius: 3px;
-  background: var(--main-main, #6A42DB);
+  background: var(--Primary-Purple-100);
   display: block;
 }
 
@@ -147,8 +147,8 @@
   justify-content: center;
   align-items: center;
   border-radius: 12px;
-  background: var(--main-main-10, #F1EDFC);
-  color: var(--main-main, #6A42DB);
+  background: var(--Primary-Purple-10-percent);
+  color: var(--Primary-Purple-100);
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -161,11 +161,27 @@
   justify-content: center;
   align-items: center;
   border-radius: 12px;
-  background: var(--main-main, #6A42DB);
+  background: var(--Primary-Purple-100);
   flex-grow: 1;
-  color: var(--white-white, #FFF);
+  color: var(--White);
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
+  line-height: 26px;
+}
+
+.inputLabel {
+  color: var(--Grayscale-800);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.selectedInputLabel {
+  color: var(--Primary-Purple-100);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
   line-height: 26px;
 }

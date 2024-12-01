@@ -6,7 +6,7 @@ import styles from "./FilterModal.module.css";
 import { useEffect, useRef, useState } from "react";
 import useFilterStore from "./useStore";
 import Slider from 'rc-slider';
-import './rcSlider.css';
+import '@/assets/styles/rcSlider.css';
 
 const FilterModal = ({ isClick = false }) => {
   const { modals, openModal, closeModal } = useModalStore();
@@ -99,7 +99,7 @@ const FilterModal = ({ isClick = false }) => {
                     name="rating"
                     onClick={onClick}
                   />
-                  전체
+                  <span className={`${styles.inputLabel} ${selectedRating == '전체' ? styles.selectedInputLabel : ''}`}>전체</span>
                   <div className={`${styles.check} ${selectedRating == '전체' ? styles.radioSelected : ''}`}></div>
                 </label>
                 <label>
@@ -109,7 +109,7 @@ const FilterModal = ({ isClick = false }) => {
                     name="rating"
                     onClick={onClick}
                   />
-                  4.8 - 5.0
+                  <span className={`${styles.inputLabel} ${selectedRating == '4.8 - 5.0' ? styles.selectedInputLabel : ''}`}>4.8 - 5.0</span>
                   <div className={`${styles.check} ${selectedRating == '4.8 - 5.0' ? styles.radioSelected : ''}`}></div>
                 </label>
                 <label>
@@ -119,7 +119,7 @@ const FilterModal = ({ isClick = false }) => {
                     name="rating"
                     onClick={onClick}
                   />
-                  4.5 - 4.8
+                  <span className={`${styles.inputLabel} ${selectedRating == '4.5 - 4.8' ? styles.selectedInputLabel : ''}`}>4.5 - 4.8</span>
                   <div className={`${styles.check} ${selectedRating == '4.5 - 4.8' ? styles.radioSelected : ''}`}></div>
                 </label>
                 <label>
@@ -129,7 +129,7 @@ const FilterModal = ({ isClick = false }) => {
                     name="rating"
                     onClick={onClick}
                   />
-                  4.0 - 4.5
+                  <span className={`${styles.inputLabel} ${selectedRating == '4.0 - 4.5' ? styles.selectedInputLabel : ''}`}>4.0 - 4.5</span>
                   <div className={`${styles.check} ${selectedRating == '4.0 - 4.5' ? styles.radioSelected : ''}`}></div>
                 </label>
                 <label>
@@ -139,7 +139,7 @@ const FilterModal = ({ isClick = false }) => {
                     name="rating"
                     onClick={onClick}
                   />
-                  3.0 - 4.0
+                  <span className={`${styles.inputLabel} ${selectedRating == '3.0 - 4.0' ? styles.selectedInputLabel : ''}`}>3.0 - 4.0</span>
                   <div className={`${selectedRating == '3.0 - 4.0' ? styles.radioSelected : styles.check}`}></div>
                 </label>
               </div>
