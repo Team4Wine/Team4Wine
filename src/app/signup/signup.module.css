@@ -35,7 +35,25 @@
   height: 48px;
   border: 1px solid #cfdbea;
   border-radius: 16px;
-  margin-bottom: 32px;
+
+}
+
+.inputContainer {
+  position: relative;
+  margin-bottom: 32px;/* 부모 요소를 relative로 설정 */
+}
+
+.errorMessage {
+  color: red;
+  position: absolute; 
+  top: 100%;
+  left: 0;
+  margin-top: 5px;
+  visibility: hidden;
+}
+
+.errorVisible {
+  visibility: visible;  /* 에러가 발생했을 때 보이도록 설정 */
 }
 
 .signupBtn {

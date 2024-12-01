@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { fetchWithToken } from '../api/apiService'
 import styles from './login.module.css';
-import logo from '@/../public/logo.png'
 import Link from "next/link";
 
 const SignIn = () => {
@@ -17,9 +17,9 @@ const SignIn = () => {
 	const router = useRouter();
 
   useEffect(() => {
-    if (typeof window !== "undefined" && window.Kakao) {
-      window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_APP_KEY);
-    }
+    if (typeof window !== "undefined" && window.Kakao && !window.Kakao.isInitialized()) {
+			window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_APP_KEY);
+		}
   }, []);
 
 	const validateEmail = (email: string) => {
@@ -67,6 +67,7 @@ const SignIn = () => {
 
 		if (response.ok) {
 			const data = await response.json();
+      localStorage.setItem("userToken", data.token);
 			router.push("/");
 		} else {
 			const errorData = await response.json();
@@ -86,11 +87,11 @@ const SignIn = () => {
   const handleSocialLogin = async (provider: string) => {
     if (provider === "KAKAO") {
       window.Kakao.Auth.authorize({
-        redirectUri: 'http://localhost:3000/oauth/kakao', // 카카오 인증 후 리다이렉트할 URI
+        redirectUri: 'http://localhost:3000/oauth/kakao',
       });
     } else if (provider === "GOOGLE") {
       const url = `https://winereview-api.vercel.app/10-4/auth/signIn/${provider}`;
-      const appKey = process.env.NEXT_PUBLIC_GOOGLE_APP_KEY; // 구글 앱 키
+      const appKey = process.env.NEXT_PUBLIC_GOOGLE_APP_KEY;
 
       const response = await fetch(url, {
         method: "POST",
@@ -120,9 +121,9 @@ const SignIn = () => {
 		<div className={styles.container}>
       <div className={styles.card}>
         <div className={styles.logo}>
-          <img src={logo} alt="Logo"/>
+          <img src="/logo.svg" alt="Logo"/>
         </div>
-        <div>
+        <div className={styles.inputContainer}>
           <label className={styles.label}>이메일:</label>
           <input
             type="text"
@@ -133,7 +134,7 @@ const SignIn = () => {
             onBlur={handleEmailBlur}
             onKeyPress={handleKeyPress}
           />
-          {emailError && <p className={styles.errorMessage}>{emailError}</p>}
+          {emailError && <p className={`${styles.errorMessage} ${emailError ? styles.errorVisible : ''}`}>{emailError}</p>}
         </div>
         <div>
           <label className={styles.label}>비밀번호</label>
@@ -146,8 +147,8 @@ const SignIn = () => {
             onBlur={handlePasswordBlur}
             onKeyPress={handleKeyPress}
           />
-          {passwordError && <p className={styles.errorMessage}>{passwordError}</p>}
-          <div className={styles.lostButton}>비밀번호를 잊으셨나요?</div>
+          {passwordError && <p className={`${styles.errorMessage} ${emailError ? styles.errorVisible : ''}`}>{passwordError}</p>}
+          <a className={styles.lostButton}>비밀번호를 잊으셨나요?</a>
         </div>
         {loginError && <p style={{ color: "red" }}>{loginError}</p>}
         <div className={styles.signupBox}>

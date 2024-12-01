@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signUpUser } from "../api/signUp";
 import styles from './signup.module.css';
-import logo from '@/../public/logo.png'
+import logo from '@/../public/logo.svg';
 
 import Link from "next/link";
 
@@ -100,10 +100,10 @@ const SignUp = () => {
 		<div className={styles.container}>
       <div className={styles.card}>
         <div className={styles.logo}>
-          <img src={logo} alt="Logo" />
+          <img src="/logo.svg" alt="Logo" />
         </div>
         <form onSubmit={handleSubmit}>
-          <div>
+          <div className={styles.inputContainer}>
             <label className={styles.label}>이메일</label>
             <input
               type="email"
@@ -114,9 +114,9 @@ const SignUp = () => {
               onBlur={() => handleBlur("email")}
               onFocus={() => setErrors((prev) => ({ ...prev, email: "" }))}
             />
-            {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
+            {errors.email && <p className={`${styles.errorMessage} ${errors.email ? styles.errorVisible : ''}`}>{errors.email}</p>}
           </div>
-          <div>
+          <div className={styles.inputContainer}>
             <label className={styles.label}>닉네임</label>
             <input
               type="text"
@@ -127,9 +127,9 @@ const SignUp = () => {
               onBlur={() => handleBlur("nickname")}
               onFocus={() => setErrors((prev) => ({ ...prev, nickname: "" }))}
             />
-            {errors.nickname && <p style={{ color: "red" }}>{errors.nickname}</p>}
+            {errors.nickname && <p className={`${styles.errorMessage} ${errors.nickname ? styles.errorVisible : ''}`}>{errors.nickname}</p>}
           </div>
-          <div>
+          <div className={styles.inputContainer}>
             <label className={styles.label}>비밀번호</label>
             <input
               type="password"
@@ -140,9 +140,9 @@ const SignUp = () => {
               onBlur={() => handleBlur("password")}
               onFocus={() => setErrors((prev) => ({ ...prev, password: "" }))}
             />
-            {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
+            {errors.password && <p className={`${styles.errorMessage} ${errors.password ? styles.errorVisible : ''}`}>{errors.password}</p>}
           </div>
-          <div>
+          <div className={styles.inputContainer}>
             <label className={styles.label}>비밀번호 확인</label>
             <input
               type="password"
@@ -156,7 +156,7 @@ const SignUp = () => {
               }
             />
             {errors.confirmPassword && (
-              <p style={{ color: "red" }}>{errors.confirmPassword}</p>
+              <p className={`${styles.errorMessage} ${errors.password ? styles.errorVisible : ''}`}>{errors.confirmPassword}</p>
             )}
           </div>
           <button type="submit" className={styles.signupBtn}>가입하기</button>
