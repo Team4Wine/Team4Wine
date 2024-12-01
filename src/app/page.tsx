@@ -1,3 +1,4 @@
+//import HomePage from "./home/page";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -5,5 +6,6 @@ export default function Home() {
     <div className={styles.page}>
       <p>테스트</p>
     </div>
+    //<HomePage/>
   );
 }

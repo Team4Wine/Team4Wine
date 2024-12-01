@@ -1,0 +1,134 @@
+.card {
+  height: 375px;
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--Grayscale-300);
+  background-color: var(--White);
+  margin-bottom: 20px;
+}
+
+.contents {
+}
+
+.itempart {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  padding: 50px 60px 0;
+}
+
+.itemimage {
+  height: 208px;
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 370px;
+  margin: 0 0 0 80px;
+  position: relative;
+  left: -30px;
+}
+
+.name {
+  font-size: 32px;
+  line-height: 42px;
+  font-weight: 600;
+  color: var(--Grayscale-800);
+  max-width: 370px;
+  max-height: 80px;
+  overflow: hidden;
+}
+
+.region {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+  color: var(--Grayscale-500);
+  padding: 0 0 14px 0;
+}
+
+.price {
+  display: inline-block;
+  font-size: 18px;
+  line-height: 26px;
+  align-items: center;
+  font-weight: 700;
+  color: var(--Primary-Purple-100);
+
+  width: fit-content;
+  padding: 8px 15px;
+  border-radius: 12px;
+  background-color: var(--Primary-Purple-10-percent);
+}
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  min-width: 80px;
+}
+
+.avgRating {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--Grayscale-800);
+  padding-bottom: 4px;
+}
+
+.starRating {
+  width: 90px;
+  height: 18px;
+  background-color: var(--Grayscale-300);
+}
+
+.reviewCount {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--Grayscale-500);
+  max-width: 100px;
+}
+
+.arrowcontainer {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  padding: 10px 0 0 0;
+}
+
+.arrow {
+  width: 36px;
+  height: 36px;
+  color: var(--Grayscale-300);
+}
+
+.reviewpart {
+  border-top: 1px solid var(--Grayscale-300);
+}
+
+.reviewdiv {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 14px 60px 14px 60px;
+}
+
+.reviewheader {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 600;
+  color: var(--Grayscale-800);
+}
+
+.recentReview {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+  color: var(--Grayscale-500);
+  max-height: 52px;
+  overflow: hidden;
+}

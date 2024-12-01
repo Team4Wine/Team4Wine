@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.upperdiv {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.bigText {
+  font-size: 54px;
+  font-weight: 800;
+  color: var(--Grayscale-800);
+}
+
+.smallText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--Grayscale-500);
+  font-size: 14px;
+}
+
+.lowerdiv {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.gradeBar {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.gradeText {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--Grayscale-500);
+  white-space: nowrap;
+}
